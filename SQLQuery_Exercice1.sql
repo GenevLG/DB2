@@ -9,8 +9,15 @@
 /* no 1-2 création de la base de données si la database existe la détruire */
 
 use master
+
+/* CODE POUR EXECUTER LE CODE MÊME SI QUELQU'UN L'UTILISE */
 GO
-DROP DATABASE IF EXISTS Glg_bd
+IF EXISTS (SELECT name FROM sys.databases WHERE name = 'Glg_bd')
+BEGIN 
+ALTER DATABASE Glg_bd SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+DROP DATABASE Glg_bd
+END
+
 GO
 CREATE DATABASE Glg_bd
 GO
