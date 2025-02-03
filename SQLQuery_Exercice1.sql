@@ -213,11 +213,9 @@ SELECT no_da,(SELECT no_offreCours
 FROM tbl_etudiant
 GO
 
-/* 
-SELECT * FROM tbl_cours
-SELECT * FROM tbl_offreCours
-SELECT * FROM tbl_inscription
-*/
+/* SELECT * FROM tbl_cours */
+/* SELECT * FROM tbl_offreCours */
+/* SELECT * FROM tbl_inscription */
 
 /*********************/
 /* no 8 */
@@ -266,8 +264,8 @@ GO
 /* SELECT * FROM tbl_cours */
 
 /* si vous avez enlevé une contrainte, n'oubliez pas de la remettre */
-/*	Faire générer un gros select (concevoir une requête dans l’éditeur) sur toutes vos tables 
-	pour bien voir le resultat final. */
+/*	Faire générer un gros select (concevoir une requête dans l’éditeur) sur toutes vos tables */
+/*	pour bien voir le resultat final. */
 
 
 
@@ -278,7 +276,7 @@ GO
 
 /* ************************************************************ */ 
 /*
-/* NOTES :
+/* NOTES : */
 /*
 /* ***** ENREGISTRER UN SCRIPT ***** */
 /* Click droite sur la BD */
