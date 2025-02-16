@@ -275,6 +275,103 @@ GO
 /*	pour bien voir le resultat final. */
 
 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/* Exercice #2 */
+
+/* Exercice sur SQL : sur les procédures stockées */
+
+use Glg_bd 
+go
+
+/* 1.	Faites une procédure stockées qui retourne le nombre total de cours à une session donnée.
+		elle prend en paramètre : la session
+
+A) pas de paramètre output  */
+CREATE PROCEDURE GetTotalCourses
+    @Session nchar(5)
+AS
+    SELECT COUNT(*) AS 'Nombre de cour total de la session :' 
+    FROM tbl_offreCours
+    WHERE no_session = @Session;
+GO
+
+/*Faites l'appel de cette procédure */
+DECLARE @Session nchar(5) = 'H2024';
+EXEC GetTotalCourses @Session;
+
+/* Afficher les tables pour comparer */ 
+Select* from tbl_offreCours;
+Select* from tbl_cours;
+
+
+/* B)	même question mais retourne un paramètre output pour le nombre de cours de cette session */
+CREATE PROCEDURE GetTotalCoursesWithOutput
+    @Session nchar(5),
+    @NombreDeCours INT OUTPUT
+AS
+BEGIN
+    SELECT @NombreDeCours = COUNT(*)
+    FROM tbl_offreCours
+    WHERE no_session = @Session;
+END
+GO
+
+/*Faites l'appel de cette procédure */
+DECLARE @Session nchar(5) = 'H2025';
+DECLARE @NombreDeCours INT;
+EXEC GetTotalCoursesWithOutput @Session, @NombreDeCours OUTPUT;
+SELECT @NombreDeCours AS TotalCourses;
+GO
+
+
+/* 2.	Faites une procédure stockées qui ajoute ou modifie un étudiant selon qu'il existe ou pas.
+		les paramètres seront : son no de DA, nom,prenom,email
+		Noter qu'on ne peut pas modifier la clé.
+		Votre procédure aura un paramètre return qui nous indiquera si on a modifier ou pas
+		Choisissez 2 valeurs > que 0 qui auront ces 2 significations soit ajout ou modification effectuée */
+
+CREATE or ALTER PROCEDURE AddOrUpdateStudent
+@no_da nchar(7),
+@nom nvarchar(100),
+@prenom nvarchar(100),
+@email nvarchar(100),
+@ReturnValue INT OUTPUT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM tbl_etudiant WHERE no_da = @no_da)
+    BEGIN
+        /* Modifier l'étudiant existant */
+        UPDATE tbl_etudiant
+        SET nom = @nom,
+            prenom = @prenom,
+            email = @email
+        WHERE no_da = @no_da;
+
+        SET @ReturnValue = 2; /* 2 = Valeur pour modification effectuée */
+    END
+    ELSE
+    BEGIN
+        /* Ajouter un nouvel étudiant */
+        INSERT INTO tbl_etudiant (no_da, nom, prenom, email)
+        VALUES (@no_da, @nom, @prenom, @email);
+
+        SET @ReturnValue = 1; /* 1 = Valeur pour ajout effectué */
+    END
+END
+GO
+
+/* appel de votre procedure et affichage de la valeur return */
+DECLARE @ReturnValue INT;
+EXEC AddOrUpdateStudent '1234567', 'Doe', 'Johnny', 'johndoe@example.com', @ReturnValue OUTPUT;
+SELECT @ReturnValue AS OperationResult;
+
+/* Afficher les tables pour comparer */ 
+SELECT* FROM tbl_etudiant
+
 
 
 
