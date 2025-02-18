@@ -372,6 +372,118 @@ SELECT @ReturnValue AS OperationResult;
 /* Afficher les tables pour comparer */ 
 SELECT* FROM tbl_etudiant
 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/* AJOUT TABLE DÉPARTEMENT ET EMPLOYÉ */
+
+use Glg_bd
+GO
+
+CREATE TABLE [dbo].[tbl_departement](
+	[no_departement] [int] IDENTITY(1,1) NOT NULL,
+	[nom_departement] [nvarchar](30) NOT NULL,
+	[no_employe_resp] [nchar](8) NULL,
+ CONSTRAINT [PK_departement] PRIMARY KEY CLUSTERED 
+(
+	[no_departement] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+
+CREATE TABLE [dbo].[tbl_employe](
+	[no_employe] [nchar](8) NOT NULL,
+	[nom] [nvarchar](30) NOT NULL,
+	[prenom] [nvarchar](30) NULL,
+	[no_departement] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[no_employe] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[tbl_employe]  WITH CHECK ADD FOREIGN KEY([no_departement])
+REFERENCES [dbo].[tbl_departement] ([no_departement])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].tbl_departement  
+ADD FOREIGN KEY([no_employe_resp]) REFERENCES [dbo].tbl_employe ([no_employe])
+
+GO
+
+
+insert into tbl_departement 
+values('informatique',null)
+go
+insert into tbl_departement
+values('administration',null)
+go
+insert into tbl_departement
+values('science',null)
+go
+insert into tbl_departement
+values('génie civil',null)
+go
+insert into tbl_departement
+values('soin infirmier',null)
+go
+
+
+
+
+insert into tbl_employe
+values('1','Poirier','Richard','1')
+go
+insert into tbl_employe
+values('2','Veilleux','Pascal','1')
+go
+insert into tbl_employe
+values('3','Poirier','Jean','3')
+go
+insert into tbl_employe
+values('4','Veilleux','Louise','4')
+go
+insert into tbl_employe
+values('5','Bégin','Carl','2')
+go
+insert into tbl_employe
+values('6','Côté','Steeve','4')
+go
+insert into tbl_employe
+values('7','Tremblay','Joanne','2')
+go
+
+
+
+
+update tbl_departement
+set no_employe_resp = '1'
+where no_departement = '1'
+go
+update tbl_departement
+set no_employe_resp = '5'
+where no_departement = '2'
+go
+update tbl_departement
+set no_employe_resp = '6'
+where no_departement = '4'
+go
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/* Exercie #3 */
+/* Table dérivée (temporaire) */ 
+
 
 
 
