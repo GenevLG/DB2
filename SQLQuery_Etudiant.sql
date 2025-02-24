@@ -1139,18 +1139,33 @@ GO
 /*	1- Lister pour chaque cours/session, les étudiants qui ont les 2 meilleurs notes.
 	on veut : no_session,no_cours,note,no_da,nom,prenom  */
 
-	/*1- a) Pour diviser en partie, commencer par faire une fonction qui me donne les étudiants 
-			qui ont les 2 meilleurs notes pour un cours et une session donnée
-			paramètre : no_cours et no_session */
+/*1- a) Pour diviser en partie, commencer par faire une fonction qui me donne les étudiants 
+		qui ont les 2 meilleurs notes pour un cours et une session donnée
+		paramètre : no_cours et no_session */
+CREATE FUNCTION GetStudentsByBestNote (@nomCours nvarchar, @no_session nvarchar)
+RETURNS TABLE 
+AS
+RETURN (
+	SELECT TOP 2 tbl_cours.nom, no_session, tbl_etudiant.nom, tbl_etudiant.prenom, note,
+	RANK () OVER (ORDER BY note DESC) 'Meilleur Note'
+	FROM tbl_etudiant 
+	INNER JOIN tbl_inscription 
+	ON tbl_etudiant.no_da = tbl_inscription.no_da
+	INNER JOIN tbl_offreCours
+	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
+	INNER JOIN tbl_cours
+	ON tbl_cours.no_cours = tbl_offreCours.no_cours
+	WHERE tbl_cours.nom = @nomCours AND no_session = @no_session )
+GO
+	
 
+/* appelé votre fonction  */
+	
 
-		/* appelé votre fonction  */
-		
-
-		/*	1- b) Servez-vous de votre fonction et de la commande cross apply, pour répondre à la question */
-			
-			
-		/* 1- c) Faites-le sans votre fonction avec cross apply et une table dérivée*/
+/*	1- b) Servez-vous de votre fonction et de la commande cross apply, pour répondre à la question */
+	
+	
+/* 1- c) Faites-le sans votre fonction avec cross apply et une table dérivée*/
 		
 
 
