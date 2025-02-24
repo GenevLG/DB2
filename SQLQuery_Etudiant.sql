@@ -475,6 +475,53 @@ go
 /* Exercie #3 */
 /* Table dérivée (temporaire) */ 
 
+/* Exercice sur les tables dérivées, With(CTE), alias: */
+/* à partir de lt_biblio, le cas scolaire complet y a été ajouté */
+use Glg_bd
+go
+
+/* 
+1- faire afficher les cours qui ont un préalable ( avec le no_cours_préalable) (1 lignes)
+*/
+SELECT no_cours 'Numéro de cours', nom 'Cours qui ont un préalable', no_coursPrealable AS 'Numéro de cours du préalable'
+FROM tbl_cours INNER JOIN tbl_prealable
+ON tbl_cours.no_cours = tbl_prealable.no_coursBase
+
+/*
+2- Faire afficher les cours et leur préalable (qu’il en ait ou pas) (3 lignes)
+*/
+SELECT no_cours 'Numéro de cours', nom AS 'Cours qui ont un préalable', no_coursPrealable AS 'Numéro de cours du préalable'
+FROM tbl_cours LEFT OUTER JOIN tbl_prealable
+ON tbl_cours.no_cours = tbl_prealable.no_coursBase
+
+/*
+3- En utilisant a) une table dérivée et b) With (CTE), c) des alias, affichez tous les cours avec ou sans préalable 
+	et pour leur préalable, affichez le nom de cours de celui-ci (3 lignes)
+*/
+/* a) une table dérivée */
+SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nom AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', tableTemporaireCours.nom AS 'Nom du cours préalable'
+FROM tbl_cours LEFT OUTER JOIN tbl_prealable
+ON tbl_cours.no_cours = tbl_prealable.no_coursBase
+LEFT OUTER JOIN (SELECT no_cours, nom FROM tbl_cours) tableTemporaireCours
+ON tableTemporaireCours.no_cours = tbl_prealable.no_coursPrealable
+
+/* b) With (DTE)*/
+WITH tabletemporaireCours (no_cours, nom_cours)
+AS (SELECT no_cours, nom FROM tbl_cours)
+
+SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nom AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', tableTemporaireCours.nom_cours AS 'Nom du cours préalable'
+FROM tbl_cours LEFT OUTER JOIN tbl_prealable
+ON tbl_cours.no_cours = tbl_prealable.no_coursBase
+LEFT OUTER JOIN tabletemporaireCours
+ON tableTemporaireCours.no_cours = tbl_prealable.no_coursPrealable
+
+/* c) alias*/
+SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nom AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', coursDeuxièmeInstance.nom AS 'Nom du cours préalable'
+FROM tbl_cours LEFT OUTER JOIN tbl_prealable
+ON tbl_cours.no_cours = tbl_prealable.no_coursBase
+LEFT OUTER JOIN tbl_cours AS coursDeuxièmeInstance
+ON coursDeuxièmeInstance.no_cours = tbl_prealable.no_coursPrealable
+
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
