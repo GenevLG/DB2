@@ -648,15 +648,14 @@ from (
 where [rang des prix] <= 3
 
 
-
 /********************************************NEWID********************************************/
+
 /* newid : génére un numéro unique, soit un uniqueidentifier */
 /* exemple : afficher 5 lignes au hasard à partir de notre table person
 			 par exemple, on pourrait afficher x produits au hasard sur une page Web */ 
 SELECT top 5 BusinessEntityID, LastName, FirstName, Title ,NEWID()
 FROM     Person.Person
 order by newid()
-
 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
@@ -683,7 +682,6 @@ FROM tbl_etudiant
 	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
 WHERE tbl_offreCours.no_cours = '4204A2BA' AND tbl_offreCours.no_session = 'H2025' 
 		
-
 /*	2- affichez la liste des étudiants (no_da, nom, prenom , no_cours, session et note) 
 	en ordre de note (desc) selon le no_cours, session 
 	et indiquer le rang selon la note. 
@@ -716,6 +714,456 @@ FROM tbl_etudiant
 WHERE tbl_inscription.note IS NOT NULL) tabletemporaireBourseEtudiant
 WHERE [Rang] <= 2
 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/* Ajout de LT_bilbio à Glg_bd */ 
+
+USE [master]
+GO
+/****** Object:  Database [LT_biblio]    Script Date: 2025-02-04 10:31:16 ******/
+/* choix 1 (PC Cégep) : ajouter dans votre bd scolaire sur le serveur bd-tinfo. Changer le use après le commentaire pour votre bd scolaire */
+/* choix 2 (PC Perso) : ajouter sur votre serveur personnel. Décommenter le create et les alter database qui sont en commentaire */
+
+
+/*
+CREATE DATABASE [LT_biblio]
+GO
+ALTER DATABASE [LT_biblio] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [LT_biblio].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [LT_biblio] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [LT_biblio] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [LT_biblio] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [LT_biblio] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [LT_biblio] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [LT_biblio] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [LT_biblio] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [LT_biblio] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [LT_biblio] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [LT_biblio] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [LT_biblio] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [LT_biblio] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [LT_biblio] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [LT_biblio] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [LT_biblio] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [LT_biblio] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [LT_biblio] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [LT_biblio] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [LT_biblio] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [LT_biblio] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [LT_biblio] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [LT_biblio] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [LT_biblio] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [LT_biblio] SET  MULTI_USER 
+GO
+ALTER DATABASE [LT_biblio] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [LT_biblio] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [LT_biblio] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [LT_biblio] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [LT_biblio] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [LT_biblio] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'LT_biblio', N'ON'
+GO
+ALTER DATABASE [LT_biblio] SET QUERY_STORE = OFF
+GO
+*/
+
+USE Glg_bd
+GO
+
+/****** Object:  Table [dbo].[LIVRES_AUTEURS]    Script Date: 2025-02-04 10:31:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LIVRES_AUTEURS](
+	[ID_LIVRE] [int] NOT NULL,
+	[ID_AUTEUR] [int] NOT NULL,
+ CONSTRAINT [PK_LIVRES_AUTEURS] PRIMARY KEY CLUSTERED 
+(
+	[ID_LIVRE] ASC,
+	[ID_AUTEUR] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[LIVRES]    Script Date: 2025-02-04 10:31:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LIVRES](
+	[ID_LIVRE] [int] NOT NULL,
+	[TITRE] [nvarchar](100) NULL,
+	[ISBN] [nvarchar](50) NULL,
+	[RESUME] [nvarchar](255) NULL,
+	[ID_CATEGORIE] [int] NULL,
+	[PRIX] [money] NULL,
+ CONSTRAINT [PK_LIVRES] PRIMARY KEY CLUSTERED 
+(
+	[ID_LIVRE] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AUTEURS]    Script Date: 2025-02-04 10:31:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AUTEURS](
+	[ID_AUTEUR] [int] NOT NULL,
+	[NOM] [nvarchar](50) NULL,
+	[PRENOM] [nvarchar](50) NULL,
+	[DATE_NAISSANCE] [datetime] NULL,
+	[DATE_DECES] [datetime] NULL,
+	[NATIONALITE] [nvarchar](50) NULL,
+ CONSTRAINT [PK_AUTEURS] PRIMARY KEY CLUSTERED 
+(
+	[ID_AUTEUR] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  UserDefinedFunction [dbo].[SommePrixLivrePArAuteur]    Script Date: 2025-02-04 10:31:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create function [dbo].[SommePrixLivrePArAuteur]
+(@id_auteur int)
+returns table 
+as
+return
+SELECT AUTEURS.ID_AUTEUR, AUTEURS.NOM, AUTEURS.PRENOM, sum( LIVRES.PRIX) as 'prix total'
+FROM     AUTEURS INNER JOIN
+                  LIVRES_AUTEURS ON AUTEURS.ID_AUTEUR = LIVRES_AUTEURS.ID_AUTEUR INNER JOIN
+                  LIVRES ON LIVRES_AUTEURS.ID_LIVRE = LIVRES.ID_LIVRE
+				  where AUTEURS.ID_AUTEUR = @id_auteur
+				  group by AUTEURS.ID_AUTEUR, AUTEURS.NOM, AUTEURS.PRENOM
+GO
+/****** Object:  Table [dbo].[CATEGORIES]    Script Date: 2025-02-04 10:31:17 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CATEGORIES](
+	[ID_CATEGORIE] [int] NOT NULL,
+	[LIB_CATEGORIE] [nvarchar](50) NULL,
+ CONSTRAINT [PK_CATEGORIES] PRIMARY KEY CLUSTERED 
+(
+	[ID_CATEGORIE] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (1, N'Arthus-Bertrand', N'Yann', NULL, NULL, N'Française')
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (2, N'Neret', N'Gilles', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (3, N'Vance', N'William', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (4, N'Van Hamme', N'Jean', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (5, N'Goscinny', N'René', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (6, N'Uderzo', N'Albert', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (7, N'Hergé', NULL, NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (8, N'Balzac', N'Honoré de', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (9, N'Baudelaire', N'Charles', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (10, N'Fuseau', N'Sandrine', NULL, NULL, NULL)
+INSERT [dbo].[AUTEURS] ([ID_AUTEUR], [NOM], [PRENOM], [DATE_NAISSANCE], [DATE_DECES], [NATIONALITE]) VALUES (11, N'Giordano', N'Louis', NULL, NULL, NULL)
+GO
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (1, N'ART')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (2, N'BANDE DESSINEE')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (3, N'HISTOIRE')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (4, N'INTERNET ET NOUVELLES TECHNOLOGIES')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (5, N'JEUNESSE')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (6, N'LITTERATURE')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (7, N'LOISIRS')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (8, N'POLICIER')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (9, N'SCIENCE')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (10, N'VOYAGE')
+INSERT [dbo].[CATEGORIES] ([ID_CATEGORIE], [LIB_CATEGORIE]) VALUES (11, N'LITTERATURE FRANCAISE')
+GO
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (1, N'La Terre vue du ciel', N'2732425230', N'Les plus belles photos de la Terre.', 10, 60.9900)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (2, N'Auguste Rodin, sculptures et dessins', N'3822887439', N'A l''aide de glaise, de bronze et de marbre, Rodin a créé l''être humain, chanté les femmes, éveillé les passions, les joies et les vices.', 1, 42.5200)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (3, N'Toulouse-Lautrec', N'3822807915', N'Reproduction de nombreuses peitures et lithographies de Toulouse-Lautrec présentées dans un ordre chronologique illustrant les diverses étapes de sa carrière.', 1, 22.9900)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (4, N'XIII, tome 1 : le jour du soleil noir', N'2871290008', NULL, 2, 45.3800)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (5, N'XIII, tome 3 : toutes les larmes de l''enfer', N'2871290083', NULL, 2, 45.3800)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (6, N'XIII, tome 14 : secret défense', N'2871292973', NULL, 2, 45.3800)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (7, N'XIII, tome 15 : lâchez les chiens !', N'2871294526', NULL, 2, 56.2500)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (8, N'Astérix et Cléopâtre', N'2012101119', N'Les aventures d''Astérix', 2, 18.9900)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (9, N'Astérx et Latraviata', N'2864971437', N'Astérix et Obélix fêtet leurs anniversaires. Et les habitants du village leur ont réservé une surprise.', 2, 20.2200)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (11, N'Le secret de la Licorne', N'2203001100', N'Les aventures de Tintin', 2, 22.1500)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (12, N'Le trésor de Rackam le Rouge', N'2203001119', N'Les aventures de Tintin', 2, 22.9900)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (18, N'Calligraphie : de nombreux abécédaires à broder', N'2842703014', N'Véritable canet de croquis à emporter partout avec soi, ce livre facile à manipuler fourmille de suggestions pour broder ses propres créations.', 7, 55.3200)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (19, N'500 conseils et astuces aux jardiniers débutants', N'229007215X', N'Tous au jardin… oui, mais fute d''expérience, perdu dans le choix des variétés, le jardinier débutant se retrouve souvent fort dépité face à de piètres résultats.', 6, 12.2400)
+INSERT [dbo].[LIVRES] ([ID_LIVRE], [TITRE], [ISBN], [RESUME], [ID_CATEGORIE], [PRIX]) VALUES (20, N'Le bisantin', N'152524222', NULL, 1, 14.2500)
+GO
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (1, 1)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (2, 2)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (3, 2)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (4, 3)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (4, 4)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (5, 3)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (5, 4)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (6, 3)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (6, 4)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (7, 3)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (7, 4)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (8, 5)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (8, 6)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (9, 5)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (9, 6)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (11, 7)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (12, 7)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (18, 10)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (19, 11)
+INSERT [dbo].[LIVRES_AUTEURS] ([ID_LIVRE], [ID_AUTEUR]) VALUES (20, 1)
+GO
+ALTER TABLE [dbo].[LIVRES]  WITH CHECK ADD  CONSTRAINT [FK_LIVRES_CATEGORIES] FOREIGN KEY([ID_CATEGORIE])
+REFERENCES [dbo].[CATEGORIES] ([ID_CATEGORIE])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[LIVRES] CHECK CONSTRAINT [FK_LIVRES_CATEGORIES]
+GO
+ALTER TABLE [dbo].[LIVRES_AUTEURS]  WITH CHECK ADD  CONSTRAINT [FK_LIVRES_AUTEURS_AUTEURS] FOREIGN KEY([ID_AUTEUR])
+REFERENCES [dbo].[AUTEURS] ([ID_AUTEUR])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[LIVRES_AUTEURS] CHECK CONSTRAINT [FK_LIVRES_AUTEURS_AUTEURS]
+GO
+ALTER TABLE [dbo].[LIVRES_AUTEURS]  WITH CHECK ADD  CONSTRAINT [FK_LIVRES_AUTEURS_LIVRES] FOREIGN KEY([ID_LIVRE])
+REFERENCES [dbo].[LIVRES] ([ID_LIVRE])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[LIVRES_AUTEURS] CHECK CONSTRAINT [FK_LIVRES_AUTEURS_LIVRES]
+GO
+USE [master]
+GO
+ALTER DATABASE [LT_biblio] SET  READ_WRITE 
+GO
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/******************************************** CROSS APPLY ********************************************/
+/* 
+cross apply et outer apply 
+*/
+
+/*
+différence entre un cross apply et un outer apply :
+cross apply :	permet de joindre le resultat d'une fonction pour chaque ligne retournée par le select à gauche.
+				Il retourne seulement les lignes du select à gauche qui produisent un resultat avec la fonction à droite.
+				C'est pourquoi on le compare avec un inner join
+
+outer apply :	Il retourne toutes les lignes du select à gauche qu'ils produisent un resultat ou non avec la fonction à droite.
+				C'est pourquoi on le compare avec un outer join 
+
+
+utilisation :	cross apply permet d'utiliser le résultat d'une table join à une function. 
+				La table est premièrement évaluée et pour chaque ligne, il y a association avec la fonction
+					
+				sert souvent dans les cas d'un select lié à une fonction qui utilise un top
+				exemple : afficher pour chaque auteur, leurs 2 livres les moins chers
+		
+*/
+
+/* Les functions
+*/
+
+/* difference entre procedure stockée et function 
+	https://www.dotnettricks.com/learn/sqlserver/difference-between-stored-procedure-and-function-in-sql-server#:~:text=The%20function%20must%20return%20a,be%20called%20from%20a%20Function.
+	fonction doit retourner un resultat, c'est optionnel pour la procedure stockée
+	fonction peut avoir seulement des paramètres input
+	fonction peut être appelé dans un procedure mais une procedure ne peut être appelé par une fonction
+	dans function (pas de insert update delete)
+	function peut être utilisée dans le where d'une requête (pas dans une procédure)
+	function qui retourne une table peut être utilisée dans un join 
+	try catch ne peut être utilisé dans une function contrairement à la procédure stockée
+	les transactions peuvent être utilisé dans une procedure stockée mais pas dans une fonction
+*/
+/* exemple de function qui retourne une table temporaire donnant les employés d'un département donné */
+
+use Glg_bd /* ou pour toi ta bd scolaire dans laquelle tu as ajouté le cas Cie, tu auras les droits en création pour les fonctions  */
+GO
+
+SELECT * from tbl_employe
+GO
+
+CREATE FUNCTION GetEmployesParDepartement (@no_departement int) 
+RETURNS @EMPLOYEES TABLE ( 
+  nom   nvarchar(30), 
+  prenom nvarchar(30),
+  no_departement int) 
+AS 
+  BEGIN 
+      INSERT INTO @EMPLOYEES 
+      SELECT nom, 
+             prenom, 
+             no_departement
+      FROM   tbl_employe  
+      WHERE  no_departement = @no_departement
+      RETURN 
+  END
+ GO
+ /* N.B. @employees est une variable table , c'est une type special pour une variable locale, elle est temporaire. 
+	elle est enregistrée dans tempDb
+	sa durée de vie se termine à la fin de la batch 
+	permet l'utilisation de PK, unique, null, check */
+
+ /* appel de la function */
+	SELECT * FROM GetEmployesParDepartement(1)
+  
+ /* On peut spécifier certaines colonnes de la fonction*/
+	SELECT nom,prenom FROM GetEmployesParDepartement(1)
+
+ /*ou on peut ajouter un order by par exemple */
+	SELECT * FROM GetEmployesParDepartement(1) ORDER BY prenom
+
+/* Nous allons utiliser cette fonction pour nous donner pour chaque département, les employés de celui-ci */
+
+/* cross apply prend chaque ligne du select et le join à la fonction en passant en paramètre le no_departement  */ 
+	SELECT * FROM tbl_departement d CROSS APPLY GetEmployesParDepartement(d.no_departement)
+
+ /* si on veut qu'il retourne TOUS les départements, et pour chacun nous retourne les employés qu'ils y en ait ou pas
+	on utilisera outer apply --> Même principe que OUTER JOIN */ 
+	 SELECT * FROM tbl_departement d OUTER APPLY GetEmployesParDepartement(d.no_departement) 
+
+/* autre façon de faire la function, sans table temporaire */ 
+CREATE FUNCTION GetEmployesParDepartement2 (@no_departement int) 
+RETURNS TABLE
+AS 
+RETURN(
+      SELECT nom, prenom, no_departement
+      FROM   tbl_employe 
+      WHERE  no_departement = @no_departement
+)
+GO
+
+/* retourne pour chaque département,  les employés */ 
+ SELECT * FROM tbl_departement d CROSS APPLY GetEmployesParDepartement2(d.no_departement)
+
+ /* Exemple, sans utiliser de function mais plutôt une table dérivée
+ */
+ SELECT * FROM tbl_departement d CROSS APPLY (	
+	SELECT *
+	FROM   tbl_employe 
+	WHERE  tbl_employe.no_departement = d.no_departement) e
+
+/*	Mais attention au piège, si on utilise pas de fonction, et qu'on peut le faire avec un inner join, 
+	c'est mieux avec un inner join, le cross apply est pas nécessaire ...
+*/
+	SELECT * 
+	FROM tbl_departement INNER JOIN  tbl_employe
+	ON  tbl_employe.no_departement = tbl_departement.no_departement 
+
+/*	Voici un exemple classique d'utilisation intéressante avec un cross apply */
+/*	function qui me retourne les 2 livres les moins chers d'un auteur 
+	(donc l'utilisation d'un top qui servira pour toutes les lignes d'une requête )*/
+use Glg_bd
+GO
+ALTER FUNCTION SommePrixLivreParAuteur(@id_auteur int)
+RETURNS TABLE
+AS
+RETURN
+	( 
+	SELECT  TOP 2 livres.id_livre,titre ,prix
+	FROM LIVRES INNER JOIN livres_auteurs
+	ON LIVRES.id_livre = livres_auteurs.id_livre
+	WHERE id_auteur = @id_auteur
+	ORDER BY prix 
+	)
+GO
+
+/* exemple d' appel */
+SELECT * FROM SommePrixLivreParAuteur(1)
+GO
+
+/* Demande  : pour chaque auteur, faire afficher leur 2 livres les moins chers */
+SELECT * 
+FROM auteurs A CROSS APPLY SommePrixLivreParAuteur(A.id_auteur)
+ORDER BY nom,prenom
+
+/* on aurait aussi pu le faire avec une table dérivée au lieu d'une function */
+SELECT * 
+FROM auteurs A CROSS APPLY ( 
+							SELECT  TOP 2 livres.id_livre,titre ,prix
+							FROM LIVRES INNER JOIN livres_auteurs
+							ON LIVRES.id_livre = livres_auteurs.id_livre
+							WHERE A.id_auteur = livres_auteurs.id_auteur
+							ORDER BY prix 
+							) L
+ORDER BY nom,prenom
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/*Exercice #4 */
+
+use Glg_bd /* si ta BD n'est pas complete, prend le script que je te fournis */
+GO
+/*	1- Lister pour chaque cours/session, les étudiants qui ont les 2 meilleurs notes.
+	on veut : no_session,no_cours,note,no_da,nom,prenom  */
+
+	/*1- a) Pour diviser en partie, commencer par faire une fonction qui me donne les étudiants 
+			qui ont les 2 meilleurs notes pour un cours et une session donnée
+			paramètre : no_cours et no_session */
+
+
+		/* appelé votre fonction  */
+		
+
+		/*	1- b) Servez-vous de votre fonction et de la commande cross apply, pour répondre à la question */
+			
+			
+		/* 1- c) Faites-le sans votre fonction avec cross apply et une table dérivée*/
+		
+
+
+ /* quelques références pour ce démo
+	https://codingsight.com/advanced-sql-cross-apply-and-outer-apply/
+	https://sqlhints.com/tag/examples-of-cross-apply/
+	https://towardsdatascience.com/probably-the-best-introduction-about-join-cross-apply-union-cross-joins-and-more-in-sql-server-f2ee8f8af957
+ */
+
+/*
+/*
+/*
+/*
 /* ************************************************************ */ 
 /*
 /* NOTES : */
