@@ -658,45 +658,63 @@ FROM     Person.Person
 order by newid()
 
 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
 
-/********************************************Exercice********************************************/
+/*Exercice #3 */
+
 	use Glg_bd
 	go
-	/* 
-	à partir de lt_biblio
-	
-	1-	affichez la liste de classe (no_da, nom, prenom ) en ordre alphabétique de nom et prénom pour un cours 
-		donnée et une session donnée, avec le rang avant les noms. pour 4204A2BA, H2025
-		Chaque rang doit être unique donc (ROW_NUMBER ou rank ?) (9 lignes )			
-	*/
-	
 
+	use LT_biblio /* Pour les mêmess résultats que les exercices */ 
+	GO
 
-	/*
-		2- affichez la liste des étudiants (no_da, nom, prenom , no_cours, session et note) 
-		en ordre de note (desc) selon le no_cours, session 
-		et indiquer le rang selon la note. 
-		Si 2 étudiants ont une même note, il auront le même rang, créant ainsi un trou dans les rangs.
-		Donc ROW_NUMBER ou rank ?
-		(19 lignes)
+/*  1-	affichez la liste de classe (no_da, nom, prenom ) en ordre alphabétique de nom et prénom pour un cours 
+	donnée et une session donnée, avec le rang avant les noms. pour 4204A2BA, H2025
+	Chaque rang doit être unique donc (ROW_NUMBER ou rank ?) (9 lignes ) */ 
+SELECT tbl_etudiant.no_da, nom, prenom, 
+	ROW_NUMBER() OVER (ORDER BY nom, prenom DESC)
+FROM tbl_etudiant 
+	INNER JOIN tbl_inscription 
+	ON tbl_etudiant.no_da = tbl_inscription.no_da
+	INNER JOIN tbl_offreCours
+	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
+WHERE tbl_offreCours.no_cours = '4204A2BA' AND tbl_offreCours.no_session = 'H2025' 
 		
-		Remarquez qui a le même rang. (Cracium et Thibaudeau, Laszlo et Dudenhoefer)
-	*/
 
+/*	2- affichez la liste des étudiants (no_da, nom, prenom , no_cours, session et note) 
+	en ordre de note (desc) selon le no_cours, session 
+	et indiquer le rang selon la note. 
+	Si 2 étudiants ont une même note, il auront le même rang, créant ainsi un trou dans les rangs.
+	Donc ROW_NUMBER ou rank ?
+	(19 lignes) */
+SELECT no_cours, no_session, note, tbl_etudiant.no_da, tbl_etudiant.nom, tbl_etudiant.prenom,   
+	RANK() OVER (PARTITION BY no_cours, no_session ORDER BY note DESC) 'Rang des notes'
+FROM tbl_etudiant 
+	INNER JOIN tbl_inscription 
+	ON tbl_etudiant.no_da = tbl_inscription.no_da
+	INNER JOIN tbl_offreCours
+	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
+WHERE tbl_inscription.note IS NOT NULL
+/*	Remarquez qui a le même rang. (Cracium et Thibaudeau, Laszlo et Dudenhoefer) */
 
-
-	/* 3- Pour une bourse, affichez seulement les étudiants au 1e ou 2e rang de note et ce par cours/ session 
-		Placez les résultats en ordre de cours et session (6 lignes )
-		truc : table dérivée ou with(DTE) 
-		(exemple : 4203B2BA H2025, 1e Cracium, 2e Thibaudeau)*/
-
-
-
-
-
-
-
-
+/* 3- Pour une bourse, affichez seulement les étudiants au 1e ou 2e rang de note et ce par cours/ session 
+	Placez les résultats en ordre de cours et session (6 lignes )
+	truc : table dérivée ou with(DTE) 
+	(exemple : 4203B2BA H2025, 1e Cracium, 2e Thibaudeau) */
+SELECT *
+FROM (
+SELECT no_cours, no_session, note, tbl_etudiant.no_da, tbl_etudiant.nom, tbl_etudiant.prenom, 
+	RANK() OVER (PARTITION BY no_cours, no_session ORDER BY note DESC) 'Rang'
+FROM tbl_etudiant 
+	INNER JOIN tbl_inscription 
+	ON tbl_etudiant.no_da = tbl_inscription.no_da
+	INNER JOIN tbl_offreCours
+	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
+WHERE tbl_inscription.note IS NOT NULL) tabletemporaireBourseEtudiant
+WHERE [Rang] <= 2
 
 /* ************************************************************ */ 
 /*
