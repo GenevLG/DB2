@@ -484,8 +484,59 @@ go
 /* Exercie #3 */
 /* Table dérivée (temporaire) */ 
 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/* Exercie #4 */
+/* Table dérivée (temporaire) */ 
 
 
+/* Données à ajouter dans scolaire avant l'exercice sur rowNumber */
+use Glg_bd /* mettre ta BD*/
+
+/* données une année avant 2025 */
+insert into tbl_etudiant (no_da,prenom,nom,email)
+select '24000' + str(businessEntityID,2) as Contact_ID,FirstName,LastName, FirstName + LastName + '@'+'gmail.com'
+from AdventureWorks2022.Person.person
+where businessEntityID >30 and businessEntityID< 40
+go
+/*select * from tbl_etudiant
+select * from tbl_inscription
+select * from tbl_offreCours
+select * from tbl_session
+*/
+
+insert into tbl_session (no_session)
+values ('H2024')
+go
+insert into tbl_offreCours (no_session,no_cours)
+values('H2024','4204A2BA')
+go
+
+
+insert into tbl_inscription(no_da,no_offreCours)
+select no_da,(select no_offreCours from tbl_offreCours where no_cours = '4204A2BA' and no_session ='H2024') from tbl_etudiant
+ where no_da > '2400031' and no_da < '2400040'
+go
+
+update tbl_inscription
+set note =  60+substring(no_da,6,2)
+where no_offreCours = (select no_offreCours from tbl_offreCours where no_cours = '4204A2BA' and no_session ='H2024')
+go
+update tbl_inscription
+set note = 99
+where no_da = 2400032
+go
+					
+
+update tbl_inscription
+set note = 78
+where no_da = 2400033 and no_offreCours = (select no_offreCours 
+											from tbl_offreCours 
+											where no_cours = '4204A2BA' and no_session ='H2024')
+go
 
 
 
