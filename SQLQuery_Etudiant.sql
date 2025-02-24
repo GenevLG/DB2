@@ -527,9 +527,7 @@ ON coursDeuxièmeInstance.no_cours = tbl_prealable.no_coursPrealable
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
 
-/* Exercie #4 */
-/* Table dérivée (temporaire) */ 
-
+/********************************************ROW_NUMBER********************************************/
 
 /* Données à ajouter dans scolaire avant l'exercice sur rowNumber */
 use Glg_bd /* mettre ta BD*/
@@ -575,6 +573,127 @@ where no_da = 2400033 and no_offreCours = (select no_offreCours
 											from tbl_offreCours 
 											where no_cours = '4204A2BA' and no_session ='H2024')
 go
+
+use AdventureWorks2022
+go
+/********************************************ROW_NUMBER********************************************/
+/*	ROW_NUMBER :	permet d'assigner un entier séquentiel à chaque ligne d'une requête 
+					le numéro part à 1
+	syntaxe :		ROW_NUMBER() OVER (
+					[PARTITION BY partition_expression, ... ]
+					ORDER BY sort_expression [ASC | DESC], ...
+					)
+	partition by:	divise le resultat en groupe de ligne. 
+					Le nombre entier est assigné à chaque groupe et réinitialisé pour chaque groupe
+					partition by est optionnel, si on l'omet, il traite toutes les lignes au complet comme un seul groupe
+	order by	:	obligatoire car les nombres sont assignés selon le tri choisi.
+*/
+/*	exemple sans partition */
+SELECT BusinessEntityID, LastName, FirstName, Title, ROW_NUMBER() OVER (ORDER BY LastName, FirstName) Ordre
+FROM     Person.Person
+
+/*	exemple avec partition, créant des sous groupes, remarquer que l'ordre recommence à 0 sur changement de valeur du regroupement */
+SELECT BusinessEntityID, LastName, FirstName, Title, ROW_NUMBER() OVER (PARTITION BY title ORDER BY LastName, FirstName) Ordre
+FROM     Person.Person
+where title is not null
+
+/*	ROW_NUMBER est intéressant pour la pagination (pensons dans une page Web où l'on veut afficher page par page pour accélérer l'affichage )
+	exemple affichant les clients de la page 2, une page ayant 10 clients
+	Remarquez qu'on utilise une table dérivée pour pouvoir restreindre sur l'ordre --> ** L'ORDRE EXISTE TOUJOURS DANS UNE TABLE TEMPORAIRE ** */
+select *
+from (
+		SELECT BusinessEntityID, LastName, FirstName, Title, ROW_NUMBER() OVER (ORDER BY LastName, FirstName) Ordre
+		FROM     Person.Person ) tableTemporaireClient
+where ordre > 20 and ordre <= 30 /* la table temporaire permet d'utiliser ordre dans le where */
+
+
+/********************************************RANK********************************************/
+/*	
+rank	:	permet d'assigner un rang séquentiel à chaque ligne d'une requête 
+			le numéro part à 1
+			Une ligne du groupe qui a la même valeur recevra le même rang, ainsi les numéros peuvent ne pas être consécutifs.
+			instruction intéressante pour top-N ou bottom-N tel qu'utilisé dans les pages Web par exemple.
+syntaxe : 	RANK() OVER (
+			[PARTITION BY partition_expression, ... ]
+			ORDER BY sort_expression [ASC | DESC], ...
+			)	
+			
+partition by :	divise le resultat en groupe de ligne. 
+				Le nombre entier est assigné à chaque groupe et réinitialisé pour chaque groupe
+				optionnel, si on l'omet, il traite toutes les lignes au complet comme un seul groupe
+order by :		obligatoire car les nombres sont assignés selon le tri choisi.
+*/
+/*	exemple sans partition, il y a des trous dans le rang car plusieurs produits ont le même prix */
+SELECT ProductID, Name, ListPrice, 
+	RANK () OVER ( ORDER BY ListPrice DESC) 'rang des prix '
+FROM     Production.Product
+/* Si on voudrais avoir les top 2 des produits les plus cher, les neuf premiers produits s'afficherais puisque les */
+/*			5 premiers ont le même prix (prix plus cher) et les 4 suivant on le même prix (deuxième prix plus cher) */ 
+
+
+/*	exemple avec partition, créant des sous groupes, il y a des trous dans le rang
+	donne le rang des prix par sous catégorie, sur changement de valeur de la catégorie, recommence à 1 */
+SELECT	ProductID, Name, ListPrice, ProductSubcategoryID,
+		RANK () OVER ( PARTITION BY ProductSubcategoryID ORDER BY ListPrice DESC) 'rang des prix '
+FROM     Production.Product
+where ProductSubcategoryID is not null
+
+/* donne le rang des prix par sous catégorie mais seulement les rangs de prix <= 3, s'il y a  lieu : utilisation de table dérivée */
+select * 
+from (
+		SELECT	ProductID, Name, ListPrice, ProductSubcategoryID,
+				RANK () OVER ( PARTITION BY ProductSubcategoryID ORDER BY ListPrice DESC) 'rang des prix'
+		FROM     Production.Product
+		where ProductSubcategoryID is not null) tableTemporairePrixProduit
+where [rang des prix] <= 3
+
+
+
+/********************************************NEWID********************************************/
+/* newid : génére un numéro unique, soit un uniqueidentifier */
+/* exemple : afficher 5 lignes au hasard à partir de notre table person
+			 par exemple, on pourrait afficher x produits au hasard sur une page Web */ 
+SELECT top 5 BusinessEntityID, LastName, FirstName, Title ,NEWID()
+FROM     Person.Person
+order by newid()
+
+
+
+/********************************************Exercice********************************************/
+	use Glg_bd
+	go
+	/* 
+	à partir de lt_biblio
+	
+	1-	affichez la liste de classe (no_da, nom, prenom ) en ordre alphabétique de nom et prénom pour un cours 
+		donnée et une session donnée, avec le rang avant les noms. pour 4204A2BA, H2025
+		Chaque rang doit être unique donc (ROW_NUMBER ou rank ?) (9 lignes )			
+	*/
+	
+
+
+	/*
+		2- affichez la liste des étudiants (no_da, nom, prenom , no_cours, session et note) 
+		en ordre de note (desc) selon le no_cours, session 
+		et indiquer le rang selon la note. 
+		Si 2 étudiants ont une même note, il auront le même rang, créant ainsi un trou dans les rangs.
+		Donc ROW_NUMBER ou rank ?
+		(19 lignes)
+		
+		Remarquez qui a le même rang. (Cracium et Thibaudeau, Laszlo et Dudenhoefer)
+	*/
+
+
+
+	/* 3- Pour une bourse, affichez seulement les étudiants au 1e ou 2e rang de note et ce par cours/ session 
+		Placez les résultats en ordre de cours et session (6 lignes )
+		truc : table dérivée ou with(DTE) 
+		(exemple : 4203B2BA H2025, 1e Cracium, 2e Thibaudeau)*/
+
+
+
+
+
 
 
 
