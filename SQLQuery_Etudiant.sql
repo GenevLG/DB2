@@ -394,8 +394,6 @@ CREATE TABLE [dbo].[tbl_departement](
 
 GO
 
-
-
 CREATE TABLE [dbo].[tbl_employe](
 	[no_employe] [nchar](8) NOT NULL,
 	[nom] [nvarchar](30) NOT NULL,
@@ -418,7 +416,6 @@ ADD FOREIGN KEY([no_employe_resp]) REFERENCES [dbo].tbl_employe ([no_employe])
 
 GO
 
-
 insert into tbl_departement 
 values('informatique',null)
 go
@@ -434,9 +431,6 @@ go
 insert into tbl_departement
 values('soin infirmier',null)
 go
-
-
-
 
 insert into tbl_employe
 values('1','Poirier','Richard','1')
@@ -459,9 +453,6 @@ go
 insert into tbl_employe
 values('7','Tremblay','Joanne','2')
 go
-
-
-
 
 update tbl_departement
 set no_employe_resp = '1'
