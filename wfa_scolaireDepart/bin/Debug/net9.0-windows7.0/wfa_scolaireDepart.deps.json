@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "wfa_scolaireDepart/1.0.0": {
+        "runtime": {
+          "wfa_scolaireDepart.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "wfa_scolaireDepart/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
