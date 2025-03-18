@@ -24,6 +24,13 @@ namespace wfa_scolaireDepart
             return cours;
         }
 
+        private void ViderTxtBox()
+        {
+            noCoursTextBox.Clear();
+            nomCoursTextBox.Clear();
+            ponderationTextBox.Clear();
+        }
+
         private void ajouterButton_Click(object sender, EventArgs e)
         {
             TblCour cours = new TblCour();
@@ -32,12 +39,13 @@ namespace wfa_scolaireDepart
             try
             {
                 if (TextBoxSontRemplis())
-                {                   
+                {
                     cours = PrendreValeursTxtBox(); //prendre des valeurs                   
                     nombreLignesAffectees = managerCours.AjouterCours(cours); //appeler fonction d'ajout
                     if (nombreLignesAffectees > 0)
                     {
-                        MessageBox.Show("Ajout avec succès.");
+                        ViderTxtBox();
+                        MessageBox.Show("Ajout avec succès.");                     
                     }
                 }
                 else
@@ -49,6 +57,12 @@ namespace wfa_scolaireDepart
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ajouterCoursForm_Load(object sender, EventArgs e)
+        {
+            noCoursTextBox.MaxLength = 8;
+            ponderationTextBox.MaxLength = 5;
         }
     }
 }

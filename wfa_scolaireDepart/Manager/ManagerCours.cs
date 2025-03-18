@@ -16,9 +16,12 @@ namespace wfa_scolaireDepart.Manager
             int nombreLignesAffectees = 0;
             using (var context = new Glg_bdContext())
             {
+                MessageBox.Show(context.Entry(cours).State.ToString());
                 context.TblCours.Add(cours);
-                nombreLignesAffectees=context.SaveChanges();                 
+                MessageBox.Show(context.Entry(cours).State.ToString());
+                nombreLignesAffectees = context.SaveChanges();                 
             }
+            return nombreLignesAffectees;
         }
     }
 }
