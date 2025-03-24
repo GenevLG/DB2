@@ -112,7 +112,34 @@ namespace wfa_scolaireDepart
 
         private void detruireButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ManagerCours managerCours = new ManagerCours();
+                TblCour cours;
+                int nombreDeLigneAffectee = 0;
 
+                if (TextBoxSontRemplis())
+                {
+                    cours = PrendreValeursTxtBox();
+                    nombreDeLigneAffectee = managerCours.DetruireCours(cours);
+
+                    if (nombreDeLigneAffectee > 0)
+                    {
+                        ViderTxtBox();
+                        MessageBox.Show(cours.Nom + " à été détruit avec succès!");
+                        RemplirComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Entrez toutes les données demandées.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            //noCoursTextBox.Enabled = false; //Le numéro de cours ne peux pas être modifier, puisque c'est la clé
         }
     }
 }

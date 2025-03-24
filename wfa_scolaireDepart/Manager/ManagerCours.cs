@@ -49,12 +49,18 @@ namespace wfa_scolaireDepart.Manager
             try
             {
                 using (var context = new Glg_bdContext()) 
-                {
+                {   
                     var coursRechercher = context.TblCours.Find(cours.NoCours);
+
+                    MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
+
                     coursRechercher.NoCours = cours.NoCours;
                     coursRechercher.Nom = cours.Nom;
                     coursRechercher.Pond = cours.Pond;
-                    nombreLignesAffectees = context.SaveChanges();
+
+                    MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
+
+                    nombreLignesAffectees = context.SaveChanges(); 
                 }
             }
             catch (Exception ex)
@@ -68,13 +74,28 @@ namespace wfa_scolaireDepart.Manager
         public int DetruireCours(TblCour cours)
         {
             int nombreLignesAffectees = 0;
-            using (var context = new Glg_bdContext())
+            try
             {
-                MessageBox.Show(context.Remove(cours).State.ToString());
+                using (var context = new Glg_bdContext())
+                {
+                    var coursRechercher = context.TblCours.Find(cours.NoCours);
 
+                    MessageBox.Show(context.Remove(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
+
+                    coursRechercher.NoCours = cours.NoCours;
+                    coursRechercher.Nom = cours.Nom;
+                    coursRechercher.Pond = cours.Pond;
+
+                    MessageBox.Show(context.Remove(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
+
+                    nombreLignesAffectees = context.SaveChanges();
+                }
             }
-
-        return nombreLignesAffectees;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            return nombreLignesAffectees;
         }
     }
 }
