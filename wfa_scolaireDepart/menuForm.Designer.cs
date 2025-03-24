@@ -37,45 +37,52 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.Snow;
             menuStrip1.Font = new Font("Corbel", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { coursToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(561, 31);
+            menuStrip1.Padding = new Padding(9, 4, 0, 4);
+            menuStrip1.Size = new Size(577, 39);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // coursToolStripMenuItem
             // 
             coursToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ajouterUnCoursToolStripMenuItem, modifierdétruireUnCoursToolStripMenuItem });
+            coursToolStripMenuItem.Font = new Font("Yu Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            coursToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
             coursToolStripMenuItem.Name = "coursToolStripMenuItem";
-            coursToolStripMenuItem.Size = new Size(67, 27);
+            coursToolStripMenuItem.Size = new Size(81, 31);
             coursToolStripMenuItem.Text = "Cours";
             // 
             // ajouterUnCoursToolStripMenuItem
             // 
+            ajouterUnCoursToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
             ajouterUnCoursToolStripMenuItem.Name = "ajouterUnCoursToolStripMenuItem";
-            ajouterUnCoursToolStripMenuItem.Size = new Size(281, 28);
+            ajouterUnCoursToolStripMenuItem.Size = new Size(343, 32);
             ajouterUnCoursToolStripMenuItem.Text = "Ajouter un cours";
             ajouterUnCoursToolStripMenuItem.Click += ajouterUnCoursToolStripMenuItem_Click;
             // 
             // modifierdétruireUnCoursToolStripMenuItem
             // 
+            modifierdétruireUnCoursToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
             modifierdétruireUnCoursToolStripMenuItem.Name = "modifierdétruireUnCoursToolStripMenuItem";
-            modifierdétruireUnCoursToolStripMenuItem.Size = new Size(281, 28);
+            modifierdétruireUnCoursToolStripMenuItem.Size = new Size(343, 32);
             modifierdétruireUnCoursToolStripMenuItem.Text = "Modifier/détruire un cours";
             modifierdétruireUnCoursToolStripMenuItem.Click += modifierdétruireUnCoursToolStripMenuItem_Click;
             // 
             // menuForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(12F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(561, 157);
+            BackColor = Color.MistyRose;
+            ClientSize = new Size(577, 121);
             Controls.Add(menuStrip1);
+            Font = new Font("Yu Gothic", 15.75F);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "menuForm";
             Text = "Menu";
             menuStrip1.ResumeLayout(false);

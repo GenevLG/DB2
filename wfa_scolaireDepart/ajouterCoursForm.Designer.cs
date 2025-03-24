@@ -39,7 +39,8 @@
             // 
             // ponderationLabel
             // 
-            ponderationLabel.Font = new Font("Segoe UI", 12F);
+            ponderationLabel.Font = new Font("Yu Gothic", 12.75F);
+            ponderationLabel.ForeColor = Color.FromArgb(128, 64, 0);
             ponderationLabel.Location = new Point(38, 125);
             ponderationLabel.Name = "ponderationLabel";
             ponderationLabel.Size = new Size(104, 21);
@@ -58,10 +59,11 @@
             // nomCoursLlabel
             // 
             nomCoursLlabel.AutoSize = true;
-            nomCoursLlabel.Font = new Font("Segoe UI", 12F);
+            nomCoursLlabel.Font = new Font("Yu Gothic", 12.75F);
+            nomCoursLlabel.ForeColor = Color.FromArgb(128, 64, 0);
             nomCoursLlabel.Location = new Point(38, 77);
             nomCoursLlabel.Name = "nomCoursLlabel";
-            nomCoursLlabel.Size = new Size(109, 21);
+            nomCoursLlabel.Size = new Size(122, 22);
             nomCoursLlabel.TabIndex = 32;
             nomCoursLlabel.Text = "Nom du cours";
             // 
@@ -77,10 +79,11 @@
             // noCoursLabel
             // 
             noCoursLabel.AutoSize = true;
-            noCoursLabel.Font = new Font("Segoe UI", 12F);
+            noCoursLabel.Font = new Font("Yu Gothic", 12.75F);
+            noCoursLabel.ForeColor = Color.FromArgb(128, 64, 0);
             noCoursLabel.Location = new Point(38, 31);
             noCoursLabel.Name = "noCoursLabel";
-            noCoursLabel.Size = new Size(131, 21);
+            noCoursLabel.Size = new Size(146, 22);
             noCoursLabel.TabIndex = 30;
             noCoursLabel.Text = "Numéro de cours";
             // 
@@ -95,20 +98,23 @@
             // 
             // ajouterButton
             // 
-            ajouterButton.Font = new Font("Segoe UI", 12F);
+            ajouterButton.BackColor = Color.Snow;
+            ajouterButton.Font = new Font("Yu Gothic", 12.75F);
+            ajouterButton.ForeColor = Color.Black;
             ajouterButton.Location = new Point(288, 179);
             ajouterButton.Margin = new Padding(3, 1, 3, 1);
             ajouterButton.Name = "ajouterButton";
             ajouterButton.Size = new Size(132, 41);
             ajouterButton.TabIndex = 28;
             ajouterButton.Text = "Ajouter";
-            ajouterButton.UseVisualStyleBackColor = true;
+            ajouterButton.UseVisualStyleBackColor = false;
             ajouterButton.Click += ajouterButton_Click;
             // 
             // ajouterCoursForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.MistyRose;
             ClientSize = new Size(489, 266);
             Controls.Add(ponderationLabel);
             Controls.Add(ponderationTextBox);
@@ -117,6 +123,7 @@
             Controls.Add(noCoursLabel);
             Controls.Add(noCoursTextBox);
             Controls.Add(ajouterButton);
+            ForeColor = Color.FromArgb(128, 64, 0);
             Margin = new Padding(3, 2, 3, 2);
             Name = "ajouterCoursForm";
             Text = "Ajouter un cours";
