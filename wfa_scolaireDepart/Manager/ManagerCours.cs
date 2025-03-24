@@ -52,13 +52,13 @@ namespace wfa_scolaireDepart.Manager
                 {   
                     var coursRechercher = context.TblCours.Find(cours.NoCours);
 
-                    MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
+                    //MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
 
                     coursRechercher.NoCours = cours.NoCours;
                     coursRechercher.Nom = cours.Nom;
                     coursRechercher.Pond = cours.Pond;
 
-                    MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
+                    //MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
 
                     nombreLignesAffectees = context.SaveChanges(); 
                 }
@@ -70,7 +70,6 @@ namespace wfa_scolaireDepart.Manager
             return nombreLignesAffectees;           
         }
 
-
         public int DetruireCours(TblCour cours)
         {
             int nombreLignesAffectees = 0;
@@ -80,13 +79,69 @@ namespace wfa_scolaireDepart.Manager
                 {
                     var coursRechercher = context.TblCours.Find(cours.NoCours);
 
-                    MessageBox.Show(context.Remove(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
+                    context.Remove(cours);
 
-                    coursRechercher.NoCours = cours.NoCours;
-                    coursRechercher.Nom = cours.Nom;
-                    coursRechercher.Pond = cours.Pond;
+                    MessageBox.Show(context.Remove(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *REMOVED*
 
-                    MessageBox.Show(context.Remove(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
+                    nombreLignesAffectees = context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            return nombreLignesAffectees;
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        /// MODIFIER ET DÉTRUIRE AVEC ATTACH
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        public int ModifierCoursAvecAttach(TblCour coursModifier, TblCour coursNonModifier)
+        {
+            int nombreLignesAffectees = 0;
+            try
+            {
+                using (var context = new Glg_bdContext())
+                {
+                    MessageBox.Show(context.Entry(coursNonModifier).State.ToString()); //Pour afficher le State du coursNonModifier *DETACHED*
+
+                    context.TblCours.Attach(coursNonModifier);
+
+                    MessageBox.Show(context.Entry(coursNonModifier).State.ToString()); //Pour afficher le State du coursNonModifier *UNCHANGED*
+
+                    coursNonModifier.NoCours = coursModifier.NoCours;
+                    coursNonModifier.Nom = coursModifier.Nom;
+                    coursNonModifier.Pond = coursModifier.Pond;
+
+                    MessageBox.Show(context.Entry(coursNonModifier).State.ToString()); //Pour afficher le State du coursNonModifier *MODIFIED*
+
+                    nombreLignesAffectees = context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            return nombreLignesAffectees;
+        }
+
+        public int DetruireCoursAvecAttach(TblCour coursDetruit)
+        {
+            int nombreLignesAffectees = 0;
+            try
+            {
+                using (var context = new Glg_bdContext())
+                {
+                    context.TblCours.Attach(coursDetruit);
+
+                    MessageBox.Show(context.Remove(coursDetruit).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
+
+                    coursDetruit.NoCours = coursDetruit.NoCours;
+                    coursDetruit.Nom = coursDetruit.Nom;
+                    coursDetruit.Pond = coursDetruit.Pond;
+
+                    MessageBox.Show(context.Remove(coursDetruit).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
 
                     nombreLignesAffectees = context.SaveChanges();
                 }
