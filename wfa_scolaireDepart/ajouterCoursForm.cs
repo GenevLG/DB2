@@ -45,7 +45,7 @@ namespace wfa_scolaireDepart
                     if (nombreLignesAffectees > 0)
                     {
                         ViderTxtBox();
-                        MessageBox.Show("Ajout avec succès.");                     
+                        MessageBox.Show(cours.Nom + " à été ajouté avec succès.");                     
                     }
                 }
                 else

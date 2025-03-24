@@ -12,19 +12,6 @@ namespace wfa_scolaireDepart.Manager
 {
     internal class ManagerCours
     {
-        public int AjouterCours(TblCour cours)
-        {
-            int nombreLignesAffectees = 0;
-            using (var context = new Glg_bdContext())
-            {
-                MessageBox.Show(context.Entry(cours).State.ToString());
-                context.TblCours.Add(cours);
-                MessageBox.Show(context.Entry(cours).State.ToString());
-                nombreLignesAffectees = context.SaveChanges();                 
-            }
-            return nombreLignesAffectees;
-        }
-
         public List<TblCour> ListerCours() //Faire une liste pour remplir la comboBox (nomComboBox)
         {
             List<TblCour> listeCours = new List<TblCour>();
@@ -37,10 +24,57 @@ namespace wfa_scolaireDepart.Manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erreur!");
             }
 
             return listeCours;
+        }
+
+        public int AjouterCours(TblCour cours)
+        {
+            int nombreLignesAffectees = 0;
+            using (var context = new Glg_bdContext())
+            {
+                MessageBox.Show(context.Entry(cours).State.ToString());
+                context.TblCours.Add(cours);
+                MessageBox.Show(context.Entry(cours).State.ToString());
+                nombreLignesAffectees = context.SaveChanges();
+            }
+            return nombreLignesAffectees;
+        }
+
+        public int ModifierCours(TblCour cours) 
+        {
+            int nombreLignesAffectees = 0;
+            try
+            {
+                using (var context = new Glg_bdContext()) 
+                {
+                    var coursRechercher = context.TblCours.Find(cours.NoCours);
+                    coursRechercher.NoCours = cours.NoCours;
+                    coursRechercher.Nom = cours.Nom;
+                    coursRechercher.Pond = cours.Pond;
+                    nombreLignesAffectees = context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            return nombreLignesAffectees;           
+        }
+
+
+        public int DetruireCours(TblCour cours)
+        {
+            int nombreLignesAffectees = 0;
+            using (var context = new Glg_bdContext())
+            {
+                MessageBox.Show(context.Remove(cours).State.ToString());
+
+            }
+
+        return nombreLignesAffectees;
         }
     }
 }

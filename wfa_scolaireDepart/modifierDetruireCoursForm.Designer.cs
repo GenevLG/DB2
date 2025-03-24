@@ -107,6 +107,7 @@
             detruireButton.TabIndex = 8;
             detruireButton.Text = "Détruire";
             detruireButton.UseVisualStyleBackColor = true;
+            detruireButton.Click += detruireButton_Click;
             // 
             // modifierButton
             // 
@@ -118,6 +119,7 @@
             modifierButton.TabIndex = 7;
             modifierButton.Text = "Modifier";
             modifierButton.UseVisualStyleBackColor = true;
+            modifierButton.Click += modifierButton_Click;
             // 
             // ponderationLabel
             // 

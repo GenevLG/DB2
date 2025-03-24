@@ -35,6 +35,26 @@ namespace wfa_scolaireDepart
             nomCoursComboBox.SelectedIndex = -1; //ComboBox avec aucun choix sélectionne au départ
             nomCoursComboBox.DropDownStyle = ComboBoxStyle.DropDownList; //Empêche d'écrire dans le comboBox
         }
+        private bool TextBoxSontRemplis()
+        {
+            return (noCoursTextBox.Text != "" && nomCoursTextBox.Text != "" && ponderationTextBox.Text != "");
+        }
+
+        private TblCour PrendreValeursTxtBox()
+        {
+            TblCour cours = new TblCour();
+            cours.NoCours = noCoursTextBox.Text;
+            cours.Nom = nomCoursTextBox.Text;
+            cours.Pond = ponderationTextBox.Text;
+            return cours;
+        }
+        private void ViderTxtBox()
+        {
+            nomCoursComboBox.SelectedIndex = -1;
+            noCoursTextBox.Clear();
+            nomCoursTextBox.Clear();
+            ponderationTextBox.Clear();
+        }
 
         private void modifierDetruireCoursForm_Load(object sender, EventArgs e)
         {
@@ -51,10 +71,48 @@ namespace wfa_scolaireDepart
                 noCoursTextBox.Text = cours.NoCours;
                 ponderationTextBox.Text = cours.Pond;
             }
-            else 
-            { 
-            nomCoursComboBox.SelectedValue = "";
+            else
+            {
+                nomCoursComboBox.SelectedValue = "";
             }
+        }
+
+        private void modifierButton_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ManagerCours managerCours = new ManagerCours();
+                TblCour cours;
+                int nombreDeLigneAffectee = 0;
+
+                if (TextBoxSontRemplis())
+                {
+                    cours = PrendreValeursTxtBox();
+                    nombreDeLigneAffectee = managerCours.ModifierCours(cours);
+
+                    if (nombreDeLigneAffectee > 0)
+                    {
+                        ViderTxtBox();
+                        MessageBox.Show(cours.Nom + " à été modifié avec succès!");
+                        RemplirComboBox();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Entrez toutes les données demandées.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            noCoursTextBox.Enabled = false; //Le numéro de cours ne peux pas être modifier, puisque c'est la clé
+        }
+
+        private void detruireButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
