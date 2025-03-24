@@ -63,7 +63,7 @@ namespace wfa_scolaireDepart
 
         private void nomCoursComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            TblCour cours = (TblCour)nomCoursComboBox.SelectedItem;
+            TblCour cours = (TblCour)nomCoursComboBox.SelectedItem; //SelectedItem est réutiliser pour les Attach
 
             if (cours != null)
             {
@@ -97,7 +97,7 @@ namespace wfa_scolaireDepart
                         MessageBox.Show(cours.Nom + " à été modifié avec succès!");
                         RemplirComboBox();
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show("Entrez toutes les données demandées.");
                     }
@@ -140,6 +140,75 @@ namespace wfa_scolaireDepart
                 MessageBox.Show(ex.Message, "Erreur!");
             }
             //noCoursTextBox.Enabled = false; //Le numéro de cours ne peux pas être modifier, puisque c'est la clé
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        /// BOUTON MODIFIER ET DÉTRUIRE AVEC ATTACH
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        private void btnModifAvecAttach_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ManagerCours managerCours = new ManagerCours();
+                TblCour coursModifier;
+                int nombreDeLigneAffectee = 0;
+
+                if (TextBoxSontRemplis())
+                {
+                    TblCour coursNonModifier = (TblCour)nomCoursComboBox.SelectedItem;
+                    coursModifier = PrendreValeursTxtBox();                 
+                    nombreDeLigneAffectee = managerCours.ModifierCoursAvecAttach(coursModifier, coursNonModifier);
+
+                    if (nombreDeLigneAffectee > 0)
+                    {
+                        ViderTxtBox();
+                        MessageBox.Show(coursModifier.Nom + " à été modifié avec succès!");
+                        RemplirComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Entrez toutes les données demandées.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            noCoursTextBox.Enabled = false; //Le numéro de cours ne peux pas être modifier, puisque c'est la clé
+        }
+
+        private void btnDetrAvecAttach_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ManagerCours managerCours = new ManagerCours();
+                TblCour cours;
+                int nombreDeLigneAffectee = 0;
+
+                if (TextBoxSontRemplis())
+                {
+                    TblCour coursDetruit = (TblCour)nomCoursComboBox.SelectedItem;
+                    coursDetruit = PrendreValeursTxtBox();
+                    nombreDeLigneAffectee = managerCours.DetruireCoursAvecAttach(coursDetruit);
+
+                    if (nombreDeLigneAffectee > 0)
+                    {
+                        ViderTxtBox();
+                        MessageBox.Show(coursDetruit.Nom + " à été détruit avec succès!");
+                        RemplirComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Entrez toutes les données demandées.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
         }
     }
 }

@@ -15,6 +15,14 @@
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\models\\glg_bdcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\glg_bdcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,24 +38,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ajouterCoursForm.cs [Conception]",
+              "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\ajouterCoursForm.cs",
+              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs [Conception]",
+              "RelativeToolTip": "wfa_scolaireDepart\\ajouterCoursForm.cs [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T14:12:13.681Z",
+              "EditorCaption": " [Conception]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "modifierDetruireCoursForm.cs [Conception]",
+              "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs [Conception]",
+              "RelativeToolTip": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs [Conception]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T14:08:12.548Z",
+              "EditorCaption": " [Conception]"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ManagerCours.cs",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAswF0AAAAgAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs*",
+              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerCours.cs*",
+              "ViewState": "AgIAADIAAAAAAAAAAAAUwFUAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T19:53:33.652Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Program.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\Program.cs",
@@ -60,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Glg_bdContext.cs",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
@@ -77,9 +109,9 @@
               "Title": "modifierDetruireCoursForm.cs",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs*",
-              "RelativeToolTip": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs*",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAswJAAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAowHsAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T12:14:03.448Z",
               "EditorCaption": ""

@@ -40,6 +40,8 @@
             nomCoursTextBox = new TextBox();
             noCoursLabel = new Label();
             noCoursTextBox = new TextBox();
+            btnModifAvecAttach = new Button();
+            btnDetrAvecAttach = new Button();
             rechercherGroupBox.SuspendLayout();
             CoursGroupBox.SuspendLayout();
             SuspendLayout();
@@ -186,12 +188,42 @@
             noCoursTextBox.Size = new Size(369, 29);
             noCoursTextBox.TabIndex = 1;
             // 
+            // btnModifAvecAttach
+            // 
+            btnModifAvecAttach.BackColor = Color.Gainsboro;
+            btnModifAvecAttach.Font = new Font("Yu Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnModifAvecAttach.ForeColor = Color.Black;
+            btnModifAvecAttach.Location = new Point(45, 575);
+            btnModifAvecAttach.Margin = new Padding(5, 4, 5, 4);
+            btnModifAvecAttach.Name = "btnModifAvecAttach";
+            btnModifAvecAttach.Size = new Size(246, 37);
+            btnModifAvecAttach.TabIndex = 9;
+            btnModifAvecAttach.Text = "Modifier Avec Attach";
+            btnModifAvecAttach.UseVisualStyleBackColor = false;
+            btnModifAvecAttach.Click += btnModifAvecAttach_Click;
+            // 
+            // btnDetrAvecAttach
+            // 
+            btnDetrAvecAttach.BackColor = Color.Gainsboro;
+            btnDetrAvecAttach.Font = new Font("Yu Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDetrAvecAttach.ForeColor = Color.Black;
+            btnDetrAvecAttach.Location = new Point(412, 575);
+            btnDetrAvecAttach.Margin = new Padding(5, 4, 5, 4);
+            btnDetrAvecAttach.Name = "btnDetrAvecAttach";
+            btnDetrAvecAttach.Size = new Size(246, 37);
+            btnDetrAvecAttach.TabIndex = 17;
+            btnDetrAvecAttach.Text = "Détruire Avec Attach";
+            btnDetrAvecAttach.UseVisualStyleBackColor = false;
+            btnDetrAvecAttach.Click += btnDetrAvecAttach_Click;
+            // 
             // modifierDetruireCoursForm
             // 
             AutoScaleDimensions = new SizeF(12F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(718, 582);
+            ClientSize = new Size(718, 625);
+            Controls.Add(btnDetrAvecAttach);
+            Controls.Add(btnModifAvecAttach);
             Controls.Add(rechercherGroupBox);
             Controls.Add(CoursGroupBox);
             Font = new Font("Yu Gothic", 15.75F);
@@ -220,5 +252,7 @@
         private TextBox nomCoursTextBox;
         private Label noCoursLabel;
         private TextBox noCoursTextBox;
+        private Button btnModifAvecAttach;
+        private Button btnDetrAvecAttach;
     }
 }

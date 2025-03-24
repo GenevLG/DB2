@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\manager\\managercours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\manager\\managercours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\1234486.corporatif\\documents\\github\\db2\\wfa_scolairedepart\\models\\glg_bdcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "ajouterCoursForm.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\ajouterCoursForm.cs",
@@ -54,7 +54,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "modifierDetruireCoursForm.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
@@ -66,13 +66,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ManagerCours.cs",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAswF0AAAAgAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs*",
+              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerCours.cs*",
+              "ViewState": "AgIAADgAAAAAAAAAAAAUwFkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-18T19:53:33.652Z",
               "EditorCaption": ""
@@ -105,20 +105,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "modifierDetruireCoursForm.cs",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
               "ToolTip": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
               "RelativeToolTip": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAswIsAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAowHsAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T12:14:03.448Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "menuForm.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\1234486.CORPORATIF\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\menuForm.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\menuForm.cs",
