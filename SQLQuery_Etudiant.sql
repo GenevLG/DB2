@@ -1168,6 +1168,22 @@ GO
 /* 1- c) Faites-le sans votre fonction avec cross apply et une table dérivée*/
 		
 
+CREATE PROCEDURE ListerResultatEtudiant 
+    @no_da nchar(7)
+AS
+BEGIN
+select tbl_etudiant.no_da, tbl_etudiant.nom, tbl_etudiant.prenom, tbl_inscription.note, tbl_cours.nom, tbl_offreCours.no_session
+
+FROM    tbl_inscription INNER JOIN
+        tbl_etudiant ON tbl_inscription.no_da = tbl_etudiant.no_da INNER JOIN
+        tbl_offreCours ON tbl_inscription.no_offreCours = tbl_offreCours.no_offreCours INNER JOIN
+        tbl_cours ON tbl_offreCours.no_cours = tbl_cours.no_cours
+where tbl_etudiant.no_da = @no_da
+order by no_session, tbl_cours.nom
+
+END
+GO
+
 
  /* quelques références pour ce démo
 	https://codingsight.com/advanced-sql-cross-apply-and-outer-apply/
