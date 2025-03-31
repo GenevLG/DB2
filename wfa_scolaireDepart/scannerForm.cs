@@ -36,12 +36,12 @@ namespace wfa_scolaireDepart
 
         }
 
-        private void storedProcedureOutputButton_Click(object sender, EventArgs e)
+        private async void storedProcedureOutputButton_Click(object sender, EventArgs e)
         {
             ManagerOffreCours managerOffreCours = new ManagerOffreCours();
 
-            var nombreDeCours = managerOffreCours.GetCoursBySessionWithOutput(sessionTextBox.Text);
-            resultatDataGridView.DataSource = nombreDeCours;
+            var nombreDeCours = await managerOffreCours.GetCoursBySessionWithOutput(sessionTextBox.Text);
+            MessageBox.Show("Le nombre de cours de la session " + sessionTextBox.ToString + " est de : " + nombreDeCours);
         }
     }
 }
