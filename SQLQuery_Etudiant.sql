@@ -1168,7 +1168,7 @@ GO
 /* 1- c) Faites-le sans votre fonction avec cross apply et une table dérivée*/
 		
 
-CREATE PROCEDURE ListerResultatEtudiant 
+CREATE OR ALTER PROCEDURE ListerResultatEtudiant 
     @no_da nchar(7)
 AS
 BEGIN
@@ -1184,6 +1184,29 @@ order by no_session, tbl_cours.nom
 END
 GO
 
+/* ///////////////////////////////////////////////////////// */
+/* PROCÉDURE POUR COMPTER LE NOMBRE DE COURS PAR SESSION */
+
+/* SANS OUTPUT*/ 
+CREATE OR ALTER PROCEDURE GetTotalCourses
+    @Session nchar(5)
+AS
+    SELECT COUNT(*) AS 'Nombre de cour total de la session :' 
+    FROM tbl_offreCours
+    WHERE no_session = @Session;
+GO
+
+/* AVEC OUTPUT */
+CREATE OR ALTER  PROCEDURE GetTotalCoursesWithOutput
+    @Session nchar(5),
+    @NombreDeCours INT OUTPUT
+AS
+BEGIN
+    SELECT @NombreDeCours = COUNT(*)
+    FROM tbl_offreCours
+    WHERE no_session = @Session;
+END
+GO
 
  /* quelques références pour ce démo
 	https://codingsight.com/advanced-sql-cross-apply-and-outer-apply/

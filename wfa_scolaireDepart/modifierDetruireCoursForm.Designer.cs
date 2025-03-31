@@ -66,7 +66,7 @@
             nomCoursComboBox.Location = new Point(263, 50);
             nomCoursComboBox.Margin = new Padding(5, 4, 5, 4);
             nomCoursComboBox.Name = "nomCoursComboBox";
-            nomCoursComboBox.Size = new Size(369, 29);
+            nomCoursComboBox.Size = new Size(369, 40);
             nomCoursComboBox.TabIndex = 6;
             nomCoursComboBox.SelectionChangeCommitted += nomCoursComboBox_SelectionChangeCommitted;
             // 
@@ -77,7 +77,7 @@
             nomCoursRechercheLabel.Location = new Point(65, 54);
             nomCoursRechercheLabel.Margin = new Padding(5, 0, 5, 0);
             nomCoursRechercheLabel.Name = "nomCoursRechercheLabel";
-            nomCoursRechercheLabel.Size = new Size(122, 22);
+            nomCoursRechercheLabel.Size = new Size(180, 34);
             nomCoursRechercheLabel.TabIndex = 5;
             nomCoursRechercheLabel.Text = "Nom du cours";
             // 
@@ -108,7 +108,7 @@
             detruireButton.Location = new Point(478, 287);
             detruireButton.Margin = new Padding(5, 4, 5, 4);
             detruireButton.Name = "detruireButton";
-            detruireButton.Size = new Size(154, 37);
+            detruireButton.Size = new Size(154, 47);
             detruireButton.TabIndex = 8;
             detruireButton.Text = "Détruire";
             detruireButton.UseVisualStyleBackColor = false;
@@ -122,7 +122,7 @@
             modifierButton.Location = new Point(111, 287);
             modifierButton.Margin = new Padding(5, 4, 5, 4);
             modifierButton.Name = "modifierButton";
-            modifierButton.Size = new Size(154, 37);
+            modifierButton.Size = new Size(154, 47);
             modifierButton.TabIndex = 7;
             modifierButton.Text = "Modifier";
             modifierButton.UseVisualStyleBackColor = false;
@@ -135,7 +135,7 @@
             ponderationLabel.Location = new Point(65, 205);
             ponderationLabel.Margin = new Padding(5, 0, 5, 0);
             ponderationLabel.Name = "ponderationLabel";
-            ponderationLabel.Size = new Size(105, 22);
+            ponderationLabel.Size = new Size(161, 34);
             ponderationLabel.TabIndex = 6;
             ponderationLabel.Text = "Pondération";
             // 
@@ -145,7 +145,7 @@
             ponderationTextBox.Location = new Point(263, 209);
             ponderationTextBox.Margin = new Padding(5, 4, 5, 4);
             ponderationTextBox.Name = "ponderationTextBox";
-            ponderationTextBox.Size = new Size(369, 29);
+            ponderationTextBox.Size = new Size(369, 39);
             ponderationTextBox.TabIndex = 5;
             // 
             // nomCoursLlabel
@@ -155,7 +155,7 @@
             nomCoursLlabel.Location = new Point(65, 121);
             nomCoursLlabel.Margin = new Padding(5, 0, 5, 0);
             nomCoursLlabel.Name = "nomCoursLlabel";
-            nomCoursLlabel.Size = new Size(122, 22);
+            nomCoursLlabel.Size = new Size(180, 34);
             nomCoursLlabel.TabIndex = 4;
             nomCoursLlabel.Text = "Nom du cours";
             // 
@@ -165,7 +165,7 @@
             nomCoursTextBox.Location = new Point(263, 122);
             nomCoursTextBox.Margin = new Padding(5, 4, 5, 4);
             nomCoursTextBox.Name = "nomCoursTextBox";
-            nomCoursTextBox.Size = new Size(369, 29);
+            nomCoursTextBox.Size = new Size(369, 39);
             nomCoursTextBox.TabIndex = 3;
             // 
             // noCoursLabel
@@ -175,7 +175,7 @@
             noCoursLabel.Location = new Point(65, 38);
             noCoursLabel.Margin = new Padding(5, 0, 5, 0);
             noCoursLabel.Name = "noCoursLabel";
-            noCoursLabel.Size = new Size(146, 22);
+            noCoursLabel.Size = new Size(219, 34);
             noCoursLabel.TabIndex = 2;
             noCoursLabel.Text = "Numéro de cours";
             // 
@@ -185,7 +185,7 @@
             noCoursTextBox.Location = new Point(263, 40);
             noCoursTextBox.Margin = new Padding(5, 4, 5, 4);
             noCoursTextBox.Name = "noCoursTextBox";
-            noCoursTextBox.Size = new Size(369, 29);
+            noCoursTextBox.Size = new Size(369, 39);
             noCoursTextBox.TabIndex = 1;
             // 
             // btnModifAvecAttach
@@ -196,7 +196,7 @@
             btnModifAvecAttach.Location = new Point(45, 575);
             btnModifAvecAttach.Margin = new Padding(5, 4, 5, 4);
             btnModifAvecAttach.Name = "btnModifAvecAttach";
-            btnModifAvecAttach.Size = new Size(246, 37);
+            btnModifAvecAttach.Size = new Size(246, 49);
             btnModifAvecAttach.TabIndex = 9;
             btnModifAvecAttach.Text = "Modifier Avec Attach";
             btnModifAvecAttach.UseVisualStyleBackColor = false;
@@ -210,7 +210,7 @@
             btnDetrAvecAttach.Location = new Point(412, 575);
             btnDetrAvecAttach.Margin = new Padding(5, 4, 5, 4);
             btnDetrAvecAttach.Name = "btnDetrAvecAttach";
-            btnDetrAvecAttach.Size = new Size(246, 37);
+            btnDetrAvecAttach.Size = new Size(246, 49);
             btnDetrAvecAttach.TabIndex = 17;
             btnDetrAvecAttach.Text = "Détruire Avec Attach";
             btnDetrAvecAttach.UseVisualStyleBackColor = false;
@@ -218,10 +218,10 @@
             // 
             // modifierDetruireCoursForm
             // 
-            AutoScaleDimensions = new SizeF(12F, 27F);
+            AutoScaleDimensions = new SizeF(19F, 42F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(718, 625);
+            ClientSize = new Size(718, 658);
             Controls.Add(btnDetrAvecAttach);
             Controls.Add(btnModifAvecAttach);
             Controls.Add(rechercherGroupBox);

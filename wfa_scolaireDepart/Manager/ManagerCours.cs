@@ -7,6 +7,8 @@ using wfa_scolaireDepart.Models;
 using wfa_scolaireDepart.Manager;
 using System.Windows.Forms;
 using System.Drawing.Imaging.Effects;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 
 namespace wfa_scolaireDepart.Manager
 {
@@ -19,7 +21,7 @@ namespace wfa_scolaireDepart.Manager
             {
                 using (var context = new Glg_bdContext())
                 {
-                    return context.TblCours.OrderBy(c => c.Nom).ToList();
+                    return context.TblCours.OrderBy(c => c.NomCours).ToList();
                 }
             }
             catch (Exception ex)
@@ -33,12 +35,28 @@ namespace wfa_scolaireDepart.Manager
         public int AjouterCours(TblCour cours)
         {
             int nombreLignesAffectees = 0;
-            using (var context = new Glg_bdContext())
+            try
             {
-                MessageBox.Show(context.Entry(cours).State.ToString());
-                context.TblCours.Add(cours);
-                MessageBox.Show(context.Entry(cours).State.ToString());
-                nombreLignesAffectees = context.SaveChanges();
+                using (var context = new Glg_bdContext())
+                {
+                    MessageBox.Show(context.Entry(cours).State.ToString());
+                    context.TblCours.Add(cours);
+                    MessageBox.Show(context.Entry(cours).State.ToString());
+                    nombreLignesAffectees = context.SaveChanges();
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                var errorMessage = "Erreur, corrigez puis réessayer. \n\r";
+                if (ex.InnerException is SqlException sqlException)
+                {
+                    errorMessage += $" Error Number: {sqlException.Number}\n\r Message: {sqlException.Message}\n\r";
+                }
+                throw new Exception(errorMessage);
+            }
+            catch (Exception)
+            {
+                throw;
             }
             return nombreLignesAffectees;
         }
@@ -55,7 +73,7 @@ namespace wfa_scolaireDepart.Manager
                     //MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
 
                     coursRechercher.NoCours = cours.NoCours;
-                    coursRechercher.Nom = cours.Nom;
+                    coursRechercher.NomCours = cours.NomCours;
                     coursRechercher.Pond = cours.Pond;
 
                     //MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
@@ -111,7 +129,7 @@ namespace wfa_scolaireDepart.Manager
                     MessageBox.Show(context.Entry(coursNonModifier).State.ToString()); //Pour afficher le State du coursNonModifier *UNCHANGED*
 
                     coursNonModifier.NoCours = coursModifier.NoCours;
-                    coursNonModifier.Nom = coursModifier.Nom;
+                    coursNonModifier.NomCours = coursModifier.NomCours;
                     coursNonModifier.Pond = coursModifier.Pond;
 
                     MessageBox.Show(context.Entry(coursNonModifier).State.ToString()); //Pour afficher le State du coursNonModifier *MODIFIED*
@@ -138,7 +156,7 @@ namespace wfa_scolaireDepart.Manager
                     MessageBox.Show(context.Remove(coursDetruit).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
 
                     coursDetruit.NoCours = coursDetruit.NoCours;
-                    coursDetruit.Nom = coursDetruit.Nom;
+                    coursDetruit.NomCours = coursDetruit.NomCours;
                     coursDetruit.Pond = coursDetruit.Pond;
 
                     MessageBox.Show(context.Remove(coursDetruit).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*

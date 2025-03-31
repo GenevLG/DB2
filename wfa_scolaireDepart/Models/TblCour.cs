@@ -19,7 +19,7 @@ public partial class TblCour
     [Required]
     [Column("nom")]
     [StringLength(100)]
-    public string Nom { get; set; }
+    public string NomCours { get; set; }
 
     [Column("pond")]
     [StringLength(5)]

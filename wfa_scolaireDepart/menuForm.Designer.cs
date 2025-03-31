@@ -32,6 +32,8 @@
             coursToolStripMenuItem = new ToolStripMenuItem();
             ajouterUnCoursToolStripMenuItem = new ToolStripMenuItem();
             modifierdétruireUnCoursToolStripMenuItem = new ToolStripMenuItem();
+            résultatToolStripMenuItem = new ToolStripMenuItem();
+            résultatDunÉtudiantToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -40,11 +42,11 @@
             menuStrip1.BackColor = Color.Snow;
             menuStrip1.Font = new Font("Corbel", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { coursToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { coursToolStripMenuItem, résultatToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(9, 4, 0, 4);
-            menuStrip1.Size = new Size(577, 39);
+            menuStrip1.Size = new Size(729, 54);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -54,14 +56,14 @@
             coursToolStripMenuItem.Font = new Font("Yu Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             coursToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
             coursToolStripMenuItem.Name = "coursToolStripMenuItem";
-            coursToolStripMenuItem.Size = new Size(81, 31);
+            coursToolStripMenuItem.Size = new Size(121, 46);
             coursToolStripMenuItem.Text = "Cours";
             // 
             // ajouterUnCoursToolStripMenuItem
             // 
             ajouterUnCoursToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
             ajouterUnCoursToolStripMenuItem.Name = "ajouterUnCoursToolStripMenuItem";
-            ajouterUnCoursToolStripMenuItem.Size = new Size(343, 32);
+            ajouterUnCoursToolStripMenuItem.Size = new Size(519, 50);
             ajouterUnCoursToolStripMenuItem.Text = "Ajouter un cours";
             ajouterUnCoursToolStripMenuItem.Click += ajouterUnCoursToolStripMenuItem_Click;
             // 
@@ -69,16 +71,33 @@
             // 
             modifierdétruireUnCoursToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
             modifierdétruireUnCoursToolStripMenuItem.Name = "modifierdétruireUnCoursToolStripMenuItem";
-            modifierdétruireUnCoursToolStripMenuItem.Size = new Size(343, 32);
+            modifierdétruireUnCoursToolStripMenuItem.Size = new Size(519, 50);
             modifierdétruireUnCoursToolStripMenuItem.Text = "Modifier/détruire un cours";
             modifierdétruireUnCoursToolStripMenuItem.Click += modifierdétruireUnCoursToolStripMenuItem_Click;
             // 
+            // résultatToolStripMenuItem
+            // 
+            résultatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { résultatDunÉtudiantToolStripMenuItem });
+            résultatToolStripMenuItem.Font = new Font("Yu Gothic", 15.75F);
+            résultatToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
+            résultatToolStripMenuItem.Name = "résultatToolStripMenuItem";
+            résultatToolStripMenuItem.Size = new Size(156, 46);
+            résultatToolStripMenuItem.Text = "Résultat";
+            // 
+            // résultatDunÉtudiantToolStripMenuItem
+            // 
+            résultatDunÉtudiantToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
+            résultatDunÉtudiantToolStripMenuItem.Name = "résultatDunÉtudiantToolStripMenuItem";
+            résultatDunÉtudiantToolStripMenuItem.Size = new Size(453, 50);
+            résultatDunÉtudiantToolStripMenuItem.Text = "Résultat d'un étudiant";
+            résultatDunÉtudiantToolStripMenuItem.Click += résultatDunÉtudiantToolStripMenuItem_Click;
+            // 
             // menuForm
             // 
-            AutoScaleDimensions = new SizeF(12F, 27F);
+            AutoScaleDimensions = new SizeF(19F, 42F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(577, 121);
+            ClientSize = new Size(729, 121);
             Controls.Add(menuStrip1);
             Font = new Font("Yu Gothic", 15.75F);
             MainMenuStrip = menuStrip1;
@@ -97,5 +116,7 @@
         private ToolStripMenuItem coursToolStripMenuItem;
         private ToolStripMenuItem ajouterUnCoursToolStripMenuItem;
         private ToolStripMenuItem modifierdétruireUnCoursToolStripMenuItem;
+        private ToolStripMenuItem résultatToolStripMenuItem;
+        private ToolStripMenuItem résultatDunÉtudiantToolStripMenuItem;
     }
 }

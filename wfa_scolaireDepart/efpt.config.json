@@ -61,6 +61,26 @@
       {
          "Name": "[dbo].[tbl_session]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AddOrUpdateStudent]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetTotalCourses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetTotalCoursesWithOutput]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ListerResultatEtudiant]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SommePrixLivrePArAuteur]",
+         "ObjectType": 2
       }
    ],
    "UiHint": null,
