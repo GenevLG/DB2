@@ -22,7 +22,7 @@ namespace wfa_scolaireDepart
         {
             ManagerInscription managerInscription = new ManagerInscription();
 
-            var liste = await managerInscription.listerResultat(noDATextBox.Text);
+            var liste = await managerInscription.ListerResultat(noDATextBox.Text);
             resultatDataGridView.DataSource = liste;
         }
 

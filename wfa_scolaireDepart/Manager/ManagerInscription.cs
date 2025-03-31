@@ -9,7 +9,7 @@ namespace wfa_scolaireDepart.Manager
 {
     public class ManagerInscription
     {
-        public async Task<List<ListerResultatEtudiantResult>> listerResultat(string noDA)
+        public async Task<List<ListerResultatEtudiantResult>> ListerResultat(string noDA)
         {
             using (var context = new Glg_bdContext())
             {
