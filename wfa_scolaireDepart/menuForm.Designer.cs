@@ -34,6 +34,7 @@
             modifierdétruireUnCoursToolStripMenuItem = new ToolStripMenuItem();
             résultatToolStripMenuItem = new ToolStripMenuItem();
             résultatDunÉtudiantToolStripMenuItem = new ToolStripMenuItem();
+            modificationDeNoteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             // 
             // résultatToolStripMenuItem
             // 
-            résultatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { résultatDunÉtudiantToolStripMenuItem });
+            résultatToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { résultatDunÉtudiantToolStripMenuItem, modificationDeNoteToolStripMenuItem });
             résultatToolStripMenuItem.Font = new Font("Yu Gothic", 15.75F);
             résultatToolStripMenuItem.ForeColor = Color.FromArgb(128, 64, 0);
             résultatToolStripMenuItem.Name = "résultatToolStripMenuItem";
@@ -91,6 +92,13 @@
             résultatDunÉtudiantToolStripMenuItem.Size = new Size(453, 50);
             résultatDunÉtudiantToolStripMenuItem.Text = "Résultat d'un étudiant";
             résultatDunÉtudiantToolStripMenuItem.Click += résultatDunÉtudiantToolStripMenuItem_Click;
+            // 
+            // modificationDeNoteToolStripMenuItem
+            // 
+            modificationDeNoteToolStripMenuItem.Name = "modificationDeNoteToolStripMenuItem";
+            modificationDeNoteToolStripMenuItem.Size = new Size(453, 50);
+            modificationDeNoteToolStripMenuItem.Text = "Modification de note";
+            modificationDeNoteToolStripMenuItem.Click += modificationDeNoteToolStripMenuItem_Click;
             // 
             // menuForm
             // 
@@ -118,5 +126,6 @@
         private ToolStripMenuItem modifierdétruireUnCoursToolStripMenuItem;
         private ToolStripMenuItem résultatToolStripMenuItem;
         private ToolStripMenuItem résultatDunÉtudiantToolStripMenuItem;
+        private ToolStripMenuItem modificationDeNoteToolStripMenuItem;
     }
 }

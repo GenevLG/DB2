@@ -32,7 +32,13 @@ namespace wfa_scolaireDepart
         private void résultatDunÉtudiantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var maForme = new scannerForm();
-            maForme.ShowDialog();   
+            maForme.ShowDialog();
+        }
+
+        private void modificationDeNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var maForme = new vueForm();
+            maForme.ShowDialog();
         }
     }
 }

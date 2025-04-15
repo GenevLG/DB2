@@ -12,7 +12,7 @@ using Microsoft.Data.SqlClient;
 
 namespace wfa_scolaireDepart.Manager
 {
-    internal class ManagerCours
+    public class ManagerCours
     {
         public List<TblCour> ListerCours() //Faire une liste pour remplir la comboBox (nomComboBox)
         {
@@ -21,7 +21,7 @@ namespace wfa_scolaireDepart.Manager
             {
                 using (var context = new Glg_bdContext())
                 {
-                    return context.TblCours.OrderBy(c => c.NomCours).ToList();
+                    return context.TblCours.OrderBy(c => c.Nom).ToList();
                 }
             }
             catch (Exception ex)
@@ -73,7 +73,7 @@ namespace wfa_scolaireDepart.Manager
                     //MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
 
                     coursRechercher.NoCours = cours.NoCours;
-                    coursRechercher.NomCours = cours.NomCours;
+                    coursRechercher.Nom = cours.Nom;
                     coursRechercher.Pond = cours.Pond;
 
                     //MessageBox.Show(context.Entry(coursRechercher).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
@@ -129,7 +129,7 @@ namespace wfa_scolaireDepart.Manager
                     MessageBox.Show(context.Entry(coursNonModifier).State.ToString()); //Pour afficher le State du coursNonModifier *UNCHANGED*
 
                     coursNonModifier.NoCours = coursModifier.NoCours;
-                    coursNonModifier.NomCours = coursModifier.NomCours;
+                    coursNonModifier.Nom = coursModifier.Nom;
                     coursNonModifier.Pond = coursModifier.Pond;
 
                     MessageBox.Show(context.Entry(coursNonModifier).State.ToString()); //Pour afficher le State du coursNonModifier *MODIFIED*
@@ -156,7 +156,7 @@ namespace wfa_scolaireDepart.Manager
                     MessageBox.Show(context.Remove(coursDetruit).State.ToString()); //Pour afficher le State du courRechecher *UNCHANGED*
 
                     coursDetruit.NoCours = coursDetruit.NoCours;
-                    coursDetruit.NomCours = coursDetruit.NomCours;
+                    coursDetruit.Nom = coursDetruit.Nom;
                     coursDetruit.Pond = coursDetruit.Pond;
 
                     MessageBox.Show(context.Remove(coursDetruit).State.ToString()); //Pour afficher le State du courRechecher *MODIFIED*
@@ -169,6 +169,28 @@ namespace wfa_scolaireDepart.Manager
                 MessageBox.Show(ex.Message, "Erreur!");
             }
             return nombreLignesAffectees;
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        /// MODIFIER ET DÉTRUIRE AVEC ATTACH
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        public List<TblCour> ListerCoursEager()
+        {
+            List<TblCour> listeCoursEager = new List<TblCour>();
+            
+            try
+            {
+            using (var context = new Glg_bdContext()) 
+            { 
+                return context.TblCours.Include(c => c.TblOffreCours)
+                        .OrderBy(c => c.Nom).ToList();
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
         }
     }
 }

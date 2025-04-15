@@ -20,10 +20,10 @@ namespace wfa_scolaireDepart
 
         private async void listButton_Click(object sender, EventArgs e)
         {
-            ManagerInscription managerInscription = new ManagerInscription();
+            //ManagerInscription managerInscription = new ManagerInscription();
 
-            var liste = await managerInscription.ListerResultat(noDATextBox.Text);
-            resultatDataGridView.DataSource = liste;
+            //var liste = await managerInscription.ListerResultat(noDATextBox.Text);
+            //resultatDataGridView.DataSource = liste;
         }
 
         private void scannerForm_Load(object sender, EventArgs e)

@@ -440,3 +440,4 @@ C:\Users\1234486.CORPORATIF\Documents\GitHub\DB2\wfa_scolaireDepart\obj\Debug\ne
 C:\Users\1234486.CORPORATIF\Documents\GitHub\DB2\wfa_scolaireDepart\obj\Debug\net9.0-windows7.0\wfa_scolaireDepart.genruntimeconfig.cache
 C:\Users\1234486.CORPORATIF\Documents\GitHub\DB2\wfa_scolaireDepart\obj\Debug\net9.0-windows7.0\ref\wfa_scolaireDepart.dll
 C:\Users\g_ler\OneDrive\Documents\GitHub\DB2\wfa_scolaireDepart\obj\Debug\net9.0-windows7.0\wfa_scolaireDepart.scannerForm.resources
+C:\Users\g_ler\OneDrive\Documents\GitHub\DB2\wfa_scolaireDepart\obj\Debug\net9.0-windows7.0\wfa_scolaireDepart.vueForm.resources

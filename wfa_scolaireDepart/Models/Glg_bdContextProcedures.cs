@@ -100,7 +100,6 @@ namespace wfa_scolaireDepart.Models
         //    return _;
         //}
 
-        // COMPTER LE NOMBRE TOTAL DE COURS PAR SESSION (sans Output)
         public virtual async Task<List<GetTotalCoursesResult>> GetTotalCoursesAsync(string session, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -128,7 +127,6 @@ namespace wfa_scolaireDepart.Models
             return _;
         }
 
-        // COMPTER LE NOMBRE TOTAL DE COURS PAR SESSION (avec Output)
         public virtual async Task<int> GetTotalCoursesWithOutputAsync(string session, OutputParameter<int?> nombreDeCours, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterNombreDeCours = new SqlParameter
@@ -160,34 +158,6 @@ namespace wfa_scolaireDepart.Models
             var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[GetTotalCoursesWithOutput] @Session = @Session, @NombreDeCours = @NombreDeCours OUTPUT", sqlParameters, cancellationToken);
 
             nombreDeCours?.SetValue(parameterNombreDeCours.Value);
-            returnValue?.SetValue(parameterreturnValue.Value);
-
-            return _;
-        }
-
-        // LISTER LES ÉTUDIANTS DANS LE DATAGRIDVIEW
-        public virtual async Task<List<ListerResultatEtudiantResult>> ListerResultatEtudiantAsync(string no_da, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
-        {
-            var parameterreturnValue = new SqlParameter
-            {
-                ParameterName = "returnValue",
-                Direction = System.Data.ParameterDirection.Output,
-                SqlDbType = System.Data.SqlDbType.Int,
-            };
-
-            var sqlParameters = new[]
-            {
-                new SqlParameter
-                {
-                    ParameterName = "no_da",
-                    Size = 14,
-                    Value = no_da ?? Convert.DBNull,
-                    SqlDbType = System.Data.SqlDbType.NChar,
-                },
-                parameterreturnValue,
-            };
-            var _ = await _context.SqlQueryAsync<ListerResultatEtudiantResult>("EXEC @returnValue = [dbo].[ListerResultatEtudiant] @no_da = @no_da", sqlParameters, cancellationToken);
-
             returnValue?.SetValue(parameterreturnValue.Value);
 
             return _;

@@ -13,5 +13,8 @@
     <Compile Update="scannerForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="vueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
