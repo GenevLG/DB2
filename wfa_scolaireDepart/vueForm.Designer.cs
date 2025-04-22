@@ -85,6 +85,7 @@
             nomCoursComboBox.Name = "nomCoursComboBox";
             nomCoursComboBox.Size = new Size(369, 40);
             nomCoursComboBox.TabIndex = 6;
+            nomCoursComboBox.SelectionChangeCommitted += nomCoursComboBox_SelectionChangeCommitted;
             // 
             // nomCoursRechercheLabel
             // 

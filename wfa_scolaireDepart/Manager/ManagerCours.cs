@@ -176,9 +176,7 @@ namespace wfa_scolaireDepart.Manager
         //////////////////////////////////////////////////////////////////////////////////////
 
         public List<TblCour> ListerCoursEager()
-        {
-            List<TblCour> listeCoursEager = new List<TblCour>();
-            
+        {          
             try
             {
             using (var context = new Glg_bdContext()) 
