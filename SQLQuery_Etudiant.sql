@@ -557,6 +557,7 @@ select no_da,(select no_offreCours from tbl_offreCours where no_cours = '4204A2B
  where no_da > '2400031' and no_da < '2400040'
 go
 
+
 update tbl_inscription
 set note =  60+substring(no_da,6,2)
 where no_offreCours = (select no_offreCours from tbl_offreCours where no_cours = '4204A2BA' and no_session ='H2024')
@@ -1279,13 +1280,164 @@ SET note = @note
 WHERE no_da = @no_da and @no_offreCours = @no_offreCours
 GO
 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************** TRANSACTION ********************************************************************************************** */ 
+/* ************************************************************************************************************************* */ 
+
+
+/* Demonstration des transactions */
+use Glg_bd
+go
+
+/*************************************************/
+/* Étape #1 - Ajout de quelques données */
+insert into tbl_etudiant (no_da,nom,prenom)  values ('2300060','Roy','Luc')
+go
+insert into tbl_inscription(no_offreCours,no_da) 
+values ((select no_offreCours  from tbl_offreCours where no_cours = '4203B2BA' and no_session = 'H2025'),
+		'2300060')
+go
+insert into tbl_session (no_session)values ('A2023')
+go
+insert into tbl_offreCours(no_cours,no_session)
+values('4203B2BA','A2023')
+go
+insert into tbl_inscription(no_offreCours,no_da)  
+values ((select no_offreCours  from tbl_offreCours where no_cours = '4203B2BA' and no_session = 'A2023'),
+		'2300060')
+go
+select * from tbl_etudiant where no_da = '2300060'
+select * from tbl_inscription where no_da = '2300060'
+select * from tbl_offreCours
+go
+
+/*************************************************/
+/* Étape #2 - Creation d'une procedure stockée sans transaction avec une erreur */
+create proc detruireEtudiantEtInscription
+@no_etudiant nchar(7)
+as
+delete from tbl_inscription where no_da = @no_etudiant
+/* erreur provoquée : contrainte de reference :no_offreCours inexistant*/
+insert into tbl_inscription (no_da,no_offreCours) values ('2300060',100)
+delete from tbl_etudiant where no_da = @no_etudiant
+go
+
+/************/
+/* Étape #3 - Execution pouvant provoquer une mauvaise intégrité des données car 1 des instructions n'est pas effectuées */
+exec detruireEtudiantEtInscription '2300060'
+select * from tbl_etudiant where no_da = '2300060'
+select * from tbl_inscription where no_da = '2300060'
+
+/*************************************************/
+/* Étape #4 - Ajout de transactions dans notre procedure */
+alter proc detruireEtudiantEtInscription
+@no_etudiant nchar(7)
+as
+begin try
+	set nocount on
+	begin transaction
+		delete from tbl_inscription where no_da = @no_etudiant
+		/* erreur provoquée : contrainte de reference :no_offreCours inexistant*/
+		insert into tbl_inscription (no_da,no_offreCours) values ('2300060',100)
+		delete from tbl_etudiant where no_da = @no_etudiant
+	commit transaction
+end try
+begin catch
+	if @@trancount > 0
+		begin
+			rollback transaction;
+			throw 51000,'problème durant l''exécution, la destruction est annulée',1; /* no erreur > 50 000 et < 2 147 483 647 , state entre 0 et 255 (sévérité)*/
+		end
+end catch
+go
+
+/*************************************************/
+/* Étape #5 - Remettre les données*/
+insert into tbl_etudiant (no_da,nom,prenom)  values ('2300060','Roy','Luc')
+insert into tbl_inscription(no_offreCours,no_da) 
+values ((select no_offreCours  from tbl_offreCours where no_cours = '4203B2BA' and no_session = 'H2025'),
+		'2300060')
+insert into tbl_inscription(no_offreCours,no_da)  
+values ((select no_offreCours  from tbl_offreCours where no_cours = '4203B2BA' and no_session = 'A2023'),
+		'2300060')
+
+/************/
+/* Étape #6 - Essaie de la procedure  avec l'erreur (rien n'est détruit), puis essayer sans l'erreur, tout est détruit */
+exec detruireEtudiantEtInscription '2300060'
+select * from tbl_etudiant where no_da = '2300060'
+select * from tbl_inscription where no_da = '2300060'
+
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/*Exercice #6 */
+
+/* Ajoutez ces 2 tables dans une de vos BD pour faire l'exercice suivant */
+
+use Glg_bd
+go
+
+CREATE TABLE tbl_departement_Exercice6 (
+    no_departement int identity NOT NULL,
+	nom_departement nvarchar (30) NOT NULL 
+) 
+GO
+
+ALTER TABLE tbl_departement_Exercice6 
+ADD CONSTRAINT [PK_departement_Exercice6 ] PRIMARY KEY (no_departement	) 
+GO
+
+CREATE TABLE tbl_employe_Exercice6  (
+	no_employe int identity NOT NULL primary key,
+	nom nvarchar (30)  NOT NULL ,
+	prenom nvarchar (30)   NULL default 'inconnu',
+	no_departement int not NULL references tbl_departement(no_departement) 
+) ON [PRIMARY]
+GO
+
+
+/* Faites une procédure stockée qui ajoute : un nouveau departement ET un employé dans ce département.
+   Faites le travail dans une transaction afin que ces ajouts soient faits au complet ou pas du tout.
+   Mettez une instruction en erreur dans votre procédure pour tester la transaction, un ajout avec référence erronée */
+CREATE OR ALTER PROCEDURE AddDepartAndEmployeInIt 
+@nom_departement nvarchar(30),
+@nom nvarchar (30),
+@prenom nvarchar (30)
+As
+BEGIN TRY
+	BEGIN TRANSACTION
+		INSERT INTO tbl_departement_Exercice6 (nom_departement) values (@nom_departement)
+		INSERT INTO tbl_employe_Exercice6 (nom, prenom, no_departement) values (@nom, @prenom, SCOPE_IDENTITY())
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+	if @@trancount > 0
+		begin
+			rollback transaction;
+			throw 51000,'problème durant l''exécution, la destruction est annulée',1; /* no erreur > 50 000 et < 2 147 483 647 , state entre 0 et 255 (sévérité)*/
+		end
+end catch
+GO
+
+/* Faites le test avec votre erreur provoquée et sans elle (la mettre en commentaire, ne pas l'enlever ) pour valider vos transactions */
+EXEC AddDepartAndEmployeInIt'Ressources Humaines','Bloom','Chelsey'
+/* test avec l'erreur, rollback sera fait */
+
+
+/* test sans l'erreur (la mettre en commentaire), les 2 ajouts seront faits */
+EXEC AddDepartAndEmployeInIt'Ressources Humaines','Bloom','Chelsey'
+
+select * from tbl_departement_Exercice6
+select * from tbl_employe_Exercice6
 
 
 
-/*
-/*
-/*
-/*
+
+/* ************************************************************ */ 
 /* ************************************************************ */ 
 /*
 /* NOTES : */
@@ -1303,4 +1455,5 @@ GO
 /* Suivant */
 /* Suivant */
 /* Terminer */
+/* ************************************************************ */ 
 /* ************************************************************ */ 

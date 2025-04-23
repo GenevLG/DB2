@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wfa_scolaireDepart")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d66bc4e02b1029061507126c5c915f921ec135cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac5b342b0c9315ccd7a1f77f7901a4d900e1d7fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("wfa_scolaireDepart")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wfa_scolaireDepart")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
