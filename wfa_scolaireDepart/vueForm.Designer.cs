@@ -33,10 +33,10 @@
             label1 = new Label();
             nomCoursComboBox = new ComboBox();
             nomCoursRechercheLabel = new Label();
-            dataGridView1 = new DataGridView();
+            etudiantDataGridView = new DataGridView();
             label2 = new Label();
             rechercherGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)etudiantDataGridView).BeginInit();
             SuspendLayout();
             // 
             // rechercherGroupBox
@@ -49,7 +49,7 @@
             rechercherGroupBox.Margin = new Padding(5, 4, 5, 4);
             rechercherGroupBox.Name = "rechercherGroupBox";
             rechercherGroupBox.Padding = new Padding(5, 4, 5, 4);
-            rechercherGroupBox.Size = new Size(667, 211);
+            rechercherGroupBox.Size = new Size(838, 211);
             rechercherGroupBox.TabIndex = 17;
             rechercherGroupBox.TabStop = false;
             rechercherGroupBox.Text = "Rechercher un cours";
@@ -61,8 +61,9 @@
             sessionComboBox.Location = new Point(263, 124);
             sessionComboBox.Margin = new Padding(5, 4, 5, 4);
             sessionComboBox.Name = "sessionComboBox";
-            sessionComboBox.Size = new Size(369, 40);
+            sessionComboBox.Size = new Size(481, 40);
             sessionComboBox.TabIndex = 8;
+            sessionComboBox.SelectionChangeCommitted += sessionComboBox_SelectionChangeCommitted;
             // 
             // label1
             // 
@@ -83,7 +84,7 @@
             nomCoursComboBox.Location = new Point(263, 50);
             nomCoursComboBox.Margin = new Padding(5, 4, 5, 4);
             nomCoursComboBox.Name = "nomCoursComboBox";
-            nomCoursComboBox.Size = new Size(369, 40);
+            nomCoursComboBox.Size = new Size(481, 40);
             nomCoursComboBox.TabIndex = 6;
             nomCoursComboBox.SelectionChangeCommitted += nomCoursComboBox_SelectionChangeCommitted;
             // 
@@ -99,14 +100,15 @@
             nomCoursRechercheLabel.TabIndex = 5;
             nomCoursRechercheLabel.Text = "Nom du cours";
             // 
-            // dataGridView1
+            // etudiantDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(14, 304);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(667, 310);
-            dataGridView1.TabIndex = 18;
+            etudiantDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            etudiantDataGridView.Location = new Point(14, 304);
+            etudiantDataGridView.Name = "etudiantDataGridView";
+            etudiantDataGridView.RowHeadersWidth = 62;
+            etudiantDataGridView.Size = new Size(934, 310);
+            etudiantDataGridView.TabIndex = 18;
+            etudiantDataGridView.CellEndEdit += etudiantDataGridView_CellEndEdit;
             // 
             // label2
             // 
@@ -125,16 +127,16 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(695, 626);
+            ClientSize = new Size(960, 626);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(etudiantDataGridView);
             Controls.Add(rechercherGroupBox);
             Name = "vueForm";
             Text = "Modifier une note";
             Load += vueForm_Load;
             rechercherGroupBox.ResumeLayout(false);
             rechercherGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)etudiantDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,7 +148,7 @@
         private Label label1;
         private ComboBox nomCoursComboBox;
         private Label nomCoursRechercheLabel;
-        private DataGridView dataGridView1;
+        private DataGridView etudiantDataGridView;
         private Label label2;
     }
 }

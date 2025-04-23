@@ -7,8 +7,10 @@ using wfa_scolaireDepart.Models;
 
 namespace wfa_scolaireDepart.Manager
 {
+
     public class ManagerInscription
     {
+        Glg_bdContext context;
         //public async Task<List<ListerResultatEtudiantResult>> ListerResultat(string noDA)
         //{
         //    //using (var context = new Glg_bdContext())
@@ -16,5 +18,20 @@ namespace wfa_scolaireDepart.Manager
         //    //    return await context.Procedures.ListerResultatEtudiantAsync(noDA);
         //    //}
         //}
+
+        public int EnregistrerChangementNote()
+        {
+            int nombreLigneAffectee = 0;
+            try
+            {
+                nombreLigneAffectee = context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return nombreLigneAffectee;
+        }
     }
 }

@@ -14,6 +14,25 @@ namespace wfa_scolaireDepart.Manager
 {
     public class ManagerCours
     {
+
+        public List<TblCour> ListerCoursEager()
+        {
+            List<TblCour> rep = new List<TblCour>();
+            try
+            {
+                using (var context = new Glg_bdContext())
+                {
+                    rep =  context.TblCours.Include(c => c.TblOffreCours)
+                             .OrderBy(c => c.Nom).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur!");
+            }
+            return rep;
+        }
+
         public List<TblCour> ListerCours() //Faire une liste pour remplir la comboBox (nomComboBox)
         {
             List<TblCour> listeCours = new List<TblCour>();
@@ -28,7 +47,6 @@ namespace wfa_scolaireDepart.Manager
             {
                 MessageBox.Show(ex.Message, "Erreur!");
             }
-
             return listeCours;
         }
 
@@ -170,25 +188,7 @@ namespace wfa_scolaireDepart.Manager
             }
             return nombreLignesAffectees;
         }
-
         //////////////////////////////////////////////////////////////////////////////////////
-        /// MODIFIER ET DÉTRUIRE AVEC ATTACH
         //////////////////////////////////////////////////////////////////////////////////////
-
-        public List<TblCour> ListerCoursEager()
-        {          
-            try
-            {
-            using (var context = new Glg_bdContext()) 
-            { 
-                return context.TblCours.Include(c => c.TblOffreCours)
-                        .OrderBy(c => c.Nom).ToList();
-            }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur!");
-            }
-        }
     }
 }

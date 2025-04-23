@@ -3,128 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\manager\\managercours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\manager\\managercours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\manager\\managerinscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\manager\\managerinscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\tblcour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\tblcour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\listerresultatetudiantresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\listerresultatetudiantresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\manager\\manageroffrecours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\manager\\manageroffrecours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\scannerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\scannerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\manager\\managercours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\manager\\managercours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\iglg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\iglg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\vueform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\glg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\glg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolairedepart\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\gettotalcoursesresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\gettotalcoursesresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\tblinscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\tblinscription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\vuelisterresultat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\vuelisterresultat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\glg_bdcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\glg_bdcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\glg_bdcontext.functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\glg_bdcontext.functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\glg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\glg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\listerresultatetudiantresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\listerresultatetudiantresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\iglg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\iglg_bdcontextprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\dbcontextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\dbcontextextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\livre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\livre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\gettotalcoursesresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\gettotalcoursesresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\tblemploye.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\tblemploye.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\modifierdetruirecoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolairedepart\\scannerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\scannerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\menuform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\menuform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\tbletudiant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\tbletudiant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\tbloffrecour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\tbloffrecour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\tblsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\tblsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\models\\sommeprixlivreparauteurresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\models\\sommeprixlivreparauteurresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\scannerform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\scannerform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|c:\\users\\g_ler\\onedrive\\documents\\github\\db2\\wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA63E11-0E42-4183-9262-ADCBD317AB66}|wfa_scolaireDepart\\wfa_scolaireDepart.csproj|solutionrelative:wfa_scolairedepart\\ajoutercoursform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -134,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -146,20 +78,176 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManagerInscription.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:25:42.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VueListerResultat.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\VueListerResultat.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\VueListerResultat.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\VueListerResultat.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Models\\VueListerResultat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:23:46.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DbContextExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:23:13.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GetTotalCoursesResult.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:23:12.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManagerOffreCours.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:19:34.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ListerResultatEtudiantResult.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:13:59.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IGlg_bdContextProcedures.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:13:55.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Glg_bdContextProcedures.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAUwB4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:13:54.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Glg_bdContext.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:13:11.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ajouterCoursForm.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\ajouterCoursForm.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\ajouterCoursForm.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowBUAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:09:39.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "modifierDetruireCoursForm.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwB4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:07:16.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ManagerCours.cs",
+              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
+              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
+              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
+              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T19:59:54.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "vueForm.cs",
               "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\vueForm.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\vueForm.cs",
               "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\vueForm.cs",
               "RelativeToolTip": "wfa_scolaireDepart\\vueForm.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwCYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAkwD8AAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-15T20:47:58.763Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "vueForm.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\vueForm.cs",
               "RelativeDocumentMoniker": "wfa_scolaireDepart\\vueForm.cs",
@@ -168,353 +256,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-15T20:42:03.089Z",
               "EditorCaption": " [Conception]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ManagerCours.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerCours.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFAAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T16:50:15.29Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "TblEmploye.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblEmploye.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\TblEmploye.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblEmploye.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\TblEmploye.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T15:23:16.592Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TblInscription.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblInscription.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\TblInscription.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblInscription.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\TblInscription.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwAYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T15:18:43.495Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "TblOffreCour.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblOffreCour.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\TblOffreCour.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblOffreCour.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\TblOffreCour.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T15:20:09.466Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "TblSession.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblSession.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\TblSession.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblSession.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\TblSession.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T15:20:02.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "scannerForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\scannerForm.Designer.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\scannerForm.Designer.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\scannerForm.Designer.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\scannerForm.Designer.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwKEAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T15:01:54.894Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "GetTotalCoursesResult.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\GetTotalCoursesResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T14:30:12.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ManagerOffreCours.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerOffreCours.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:47:20.115Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "modifierDetruireCoursForm.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs [Conception]",
-              "RelativeToolTip": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs [Conception]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:42:43.958Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "menuForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\menuForm.Designer.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\menuForm.Designer.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\menuForm.Designer.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\menuForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:39:43.752Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Livre.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Livre.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\Livre.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Livre.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\Livre.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:39:38.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "modifierDetruireCoursForm.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\modifierDetruireCoursForm.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAwIIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:27:00.064Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "TblEtudiant.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblEtudiant.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\TblEtudiant.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblEtudiant.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\TblEtudiant.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBAAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:25:13.598Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "SommePrixLivrePArAuteurResult.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\SommePrixLivrePArAuteurResult.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\SommePrixLivrePArAuteurResult.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\SommePrixLivrePArAuteurResult.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\SommePrixLivrePArAuteurResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:17:06.204Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Glg_bdContext.Functions.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContext.Functions.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\Glg_bdContext.Functions.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContext.Functions.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\Glg_bdContext.Functions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:18:59.799Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DbContextExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\DbContextExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:17:53.252Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ListerResultatEtudiantResult.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\ListerResultatEtudiantResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:06:27.094Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IGlg_bdContextProcedures.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\IGlg_bdContextProcedures.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T13:03:10.134Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Glg_bdContextProcedures.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\Glg_bdContextProcedures.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T12:55:35.909Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ManagerInscription.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Manager\\ManagerInscription.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T12:26:15.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "scannerForm.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\scannerForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\scannerForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\scannerForm.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\scannerForm.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAApwBoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T12:18:34.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ajouterCoursForm.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\ajouterCoursForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs [Conception]",
-              "RelativeToolTip": "wfa_scolaireDepart\\ajouterCoursForm.cs [Conception]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T12:18:23.499Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "scannerForm.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\scannerForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\scannerForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\scannerForm.cs [Conception]",
-              "RelativeToolTip": "wfa_scolaireDepart\\scannerForm.cs [Conception]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T12:12:07.776Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "menuForm.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\menuForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\menuForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\menuForm.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\menuForm.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAawCwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T12:08:07.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "menuForm.cs [Conception]",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\menuForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\menuForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\menuForm.cs [Conception]",
-              "RelativeToolTip": "wfa_scolaireDepart\\menuForm.cs [Conception]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T12:07:59.763Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Program.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Program.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Program.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T17:08:10.919Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TblCour.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblCour.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\TblCour.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\TblCour.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\TblCour.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T16:53:01.622Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Glg_bdContext.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\Models\\Glg_bdContext.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAuwEMAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T16:52:34.275Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ajouterCoursForm.cs",
-              "DocumentMoniker": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs",
-              "RelativeDocumentMoniker": "wfa_scolaireDepart\\ajouterCoursForm.cs",
-              "ToolTip": "C:\\Users\\g_ler\\OneDrive\\Documents\\GitHub\\DB2\\wfa_scolaireDepart\\ajouterCoursForm.cs",
-              "RelativeToolTip": "wfa_scolaireDepart\\ajouterCoursForm.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwB0AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T16:22:00.401Z"
             }
           ]
         },

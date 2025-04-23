@@ -63,8 +63,8 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[AddOrUpdateStudent]",
-         "ObjectType": 1
+         "Name": "[dbo].[VueListerResultat]",
+         "ObjectType": 3
       },
       {
          "Name": "[dbo].[GetTotalCourses]",
@@ -79,8 +79,8 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[SommePrixLivrePArAuteur]",
-         "ObjectType": 2
+         "Name": "[dbo].[ModifierNoteEtudiant]",
+         "ObjectType": 1
       }
    ],
    "UiHint": null,

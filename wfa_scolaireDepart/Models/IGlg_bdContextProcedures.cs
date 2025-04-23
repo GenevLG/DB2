@@ -13,8 +13,8 @@ namespace wfa_scolaireDepart.Models
 {
     public partial interface IGlg_bdContextProcedures
     {
-        //Task<int> AddOrUpdateStudentAsync(string no_da, string nom, string prenom, string email, OutputParameter<int?> returnValue, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetTotalCoursesResult>> GetTotalCoursesAsync(string session, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> GetTotalCoursesWithOutputAsync(string session, OutputParameter<int?> nombreDeCours, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> ModifierNoteEtudiantAsync(string no_da, int? no_offreCours, decimal? note, string nom, string prenom, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }

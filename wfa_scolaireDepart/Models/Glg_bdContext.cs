@@ -37,6 +37,8 @@ public partial class Glg_bdContext : DbContext
 
     public virtual DbSet<TblSession> TblSessions { get; set; }
 
+    public virtual DbSet<VueListerResultat> VueListerResultats { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=PeachNextGeN;Initial Catalog=Glg_bd;Integrated Security=True;Encrypt=False");
@@ -81,7 +83,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblCour>(entity =>
         {
-            entity.HasKey(e => e.NoCours).HasName("PK__tbl_cour__1297542F18CD9C95");
+            entity.HasKey(e => e.NoCours).HasName("PK__tbl_cour__1297542F2B95A88B");
 
             entity.Property(e => e.NoCours).IsFixedLength();
             entity.Property(e => e.Pond)
@@ -150,7 +152,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblEmploye>(entity =>
         {
-            entity.HasKey(e => e.NoEmploye).HasName("PK__tbl_empl__00FC3D602555DAB0");
+            entity.HasKey(e => e.NoEmploye).HasName("PK__tbl_empl__00FC3D60408C6557");
 
             entity.Property(e => e.NoEmploye).IsFixedLength();
 
@@ -161,7 +163,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblEtudiant>(entity =>
         {
-            entity.HasKey(e => e.NoDa).HasName("PK__tbl_etud__E2D4DBFA852FF626");
+            entity.HasKey(e => e.NoDa).HasName("PK__tbl_etud__E2D4DBFA3E6D102F");
 
             entity.Property(e => e.NoDa).IsFixedLength();
         });
@@ -199,12 +201,18 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblSession>(entity =>
         {
-            entity.HasKey(e => e.NoSession).HasName("PK__tbl_sess__6DBB4FB997839448");
+            entity.HasKey(e => e.NoSession).HasName("PK__tbl_sess__6DBB4FB950CCA8A6");
 
             entity.Property(e => e.NoSession).IsFixedLength();
         });
 
-        OnModelCreatingGeneratedFunctions(modelBuilder);
+        modelBuilder.Entity<VueListerResultat>(entity =>
+        {
+            entity.ToView("VueListerResultat");
+
+            entity.Property(e => e.NoDa).IsFixedLength();
+        });
+
         OnModelCreatingPartial(modelBuilder);
     }
 
