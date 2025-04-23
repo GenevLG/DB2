@@ -83,7 +83,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblCour>(entity =>
         {
-            entity.HasKey(e => e.NoCours).HasName("PK__tbl_cour__1297542F2B95A88B");
+            entity.HasKey(e => e.NoCours).HasName("PK__tbl_cour__1297542FC7C29B89");
 
             entity.Property(e => e.NoCours).IsFixedLength();
             entity.Property(e => e.Pond)
@@ -152,7 +152,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblEmploye>(entity =>
         {
-            entity.HasKey(e => e.NoEmploye).HasName("PK__tbl_empl__00FC3D60408C6557");
+            entity.HasKey(e => e.NoEmploye).HasName("PK__tbl_empl__00FC3D60DBCE56E3");
 
             entity.Property(e => e.NoEmploye).IsFixedLength();
 
@@ -163,7 +163,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblEtudiant>(entity =>
         {
-            entity.HasKey(e => e.NoDa).HasName("PK__tbl_etud__E2D4DBFA3E6D102F");
+            entity.HasKey(e => e.NoDa).HasName("PK__tbl_etud__E2D4DBFA7D222F81");
 
             entity.Property(e => e.NoDa).IsFixedLength();
         });
@@ -201,7 +201,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblSession>(entity =>
         {
-            entity.HasKey(e => e.NoSession).HasName("PK__tbl_sess__6DBB4FB950CCA8A6");
+            entity.HasKey(e => e.NoSession).HasName("PK__tbl_sess__6DBB4FB971312F2F");
 
             entity.Property(e => e.NoSession).IsFixedLength();
         });
