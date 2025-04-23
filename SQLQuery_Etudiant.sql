@@ -309,7 +309,7 @@ Select* from tbl_cours;
 
 
 /* B)	même question mais retourne un paramètre output pour le nombre de cours de cette session */
-CREATE PROCEDURE GetTotalCoursesWithOutput
+CREATE OR ALTER PROCEDURE GetTotalCoursesWithOutput
     @Session nchar(5),
     @NombreDeCours INT OUTPUT
 AS
@@ -1259,15 +1259,15 @@ go
 
 /* No_Da, nom, prenom et note */ 
 
-CREATE OR ALTER VIEW vueListerResultat
+CREATE OR ALTER VIEW VueListerResultat
 AS
-SELECT tbl_inscription.no_da, nom, prenom, note /* <--- Modification se fait dans la tbl_inscription, donc le SELECT no_da est celle de cette même table.*/ 
+SELECT tbl_inscription.no_da, nom, prenom, note, no_offreCours/* <--- Modification se fait dans la tbl_inscription, donc le SELECT no_da est celle de cette même table.*/ 
 FROM tbl_etudiant INNER JOIN tbl_inscription
 ON tbl_etudiant.no_da = tbl_inscription.no_da
 GO
 
 
-CREATE PROCEDURE ModifierNoteEtudiant
+CREATE OR ALTER PROCEDURE ModifierNoteEtudiant
 @no_da nchar(7),
 @no_offreCours int,
 @note decimal(5,2),
