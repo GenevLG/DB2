@@ -38,7 +38,7 @@ GO
 
 CREATE TABLE tbl_cours (
     no_cours nchar (8) NOT NULL primary key,
-	nom nvarchar (100)  NOT NULL,
+	nomCours nvarchar (100)  NOT NULL,
 	ponderation nchar (5)
 ) 
 GO
@@ -132,7 +132,7 @@ GO
 /*********************/
 /* no 2 */
 
-INSERT INTO tbl_cours (no_cours, nom, ponderation)
+INSERT INTO tbl_cours (no_cours, nomCours, ponderation)
 VALUES ('4204B2BA', 'Base de données 2', '2-3-2'), ('4203B1BA', 'Base de données 1', '2-2-1')
 GO
 /* SELECT * FROM tbl_cours */
@@ -192,19 +192,19 @@ SELECT * FROM tbl_inscription
 
 INSERT INTO tbl_etudiant (no_da, prenom, nom, email)
 SELECT '25000' + str(BusinessEntityID,2) AS BusinessEntityID,FirstName,LastName,(FirstName + '.'+ LastName + '@gmail.com')
-FROM AdventureWorks2022.Person.Person
+FROM BD_AdventureWorks.Person.Person
 WHERE BusinessEntityID between 10 and 20
 GO
 
 /* 
-SELECT * FROM AdventureWorks2022.Person.person 
+SELECT * FROM BD_AdventureWorks.Person.person 
 SELECT * FROM tbl_etudiant 
 */
 
 /*********************/
 /* no 7 */
 
-INSERT INTO tbl_cours (no_cours, nom, ponderation)
+INSERT INTO tbl_cours (no_cours, nomCours, ponderation)
 VALUES('4204A2BA','méthode de développement', null)
 
 
@@ -245,7 +245,7 @@ GO
 
 /* TRANSFEREE LES DONNEES */ 
 UPDATE tbl_cours
-SET pond  = ponderation 
+SET pond  = ponderation
 GO
 
 /* DETRUIRE LE LIEN (LA CONTRAINTE) */
@@ -264,7 +264,7 @@ ADD CONSTRAINT DF_pondCours
 DEFAULT '1-1-1' FOR pond
 GO
 
-INSERT INTO tbl_cours (no_cours,nom)
+INSERT INTO tbl_cours (no_cours,nomCours)
 VALUES ('test','test')
 GO
 
@@ -284,14 +284,14 @@ GO
 
 /* Exercice sur SQL : sur les procédures stockées */
 
-use Glg_bd 
-go
+USE Glg_bd 
+GO
 
 /* 1.	Faites une procédure stockées qui retourne le nombre total de cours à une session donnée.
 		elle prend en paramètre : la session
 
 A) pas de paramètre output  */
-CREATE PROCEDURE GetTotalCourses
+CREATE OR ALTER PROCEDURE GetTotalCourses
     @Session nchar(5)
 AS
     SELECT COUNT(*) AS 'Nombre de cour total de la session :' 
@@ -306,7 +306,7 @@ EXEC GetTotalCourses @Session;
 /* Afficher les tables pour comparer */ 
 Select* from tbl_offreCours;
 Select* from tbl_cours;
-
+GO
 
 /* B)	même question mais retourne un paramètre output pour le nombre de cours de cette session */
 CREATE OR ALTER PROCEDURE GetTotalCoursesWithOutput
@@ -371,7 +371,7 @@ SELECT @ReturnValue AS OperationResult;
 
 /* Afficher les tables pour comparer */ 
 SELECT* FROM tbl_etudiant
-
+GO
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
@@ -379,7 +379,7 @@ SELECT* FROM tbl_etudiant
 
 /* AJOUT TABLE DÉPARTEMENT ET EMPLOYÉ */
 
-use Glg_bd
+USE Glg_bd
 GO
 
 CREATE TABLE [dbo].[tbl_departement](
@@ -483,44 +483,49 @@ go
 /* 
 1- faire afficher les cours qui ont un préalable ( avec le no_cours_préalable) (1 lignes)
 */
-SELECT no_cours 'Numéro de cours', nom 'Cours qui ont un préalable', no_coursPrealable AS 'Numéro de cours du préalable'
+SELECT no_cours 'Numéro de cours', nomCours 'Cours qui ont un préalable', no_coursPrealable AS 'Numéro de cours du préalable'
 FROM tbl_cours INNER JOIN tbl_prealable
 ON tbl_cours.no_cours = tbl_prealable.no_coursBase
+GO
 
 /*
 2- Faire afficher les cours et leur préalable (qu’il en ait ou pas) (3 lignes)
 */
-SELECT no_cours 'Numéro de cours', nom AS 'Cours qui ont un préalable', no_coursPrealable AS 'Numéro de cours du préalable'
+SELECT no_cours 'Numéro de cours', nomCours AS 'Cours qui ont un préalable', no_coursPrealable AS 'Numéro de cours du préalable'
 FROM tbl_cours LEFT OUTER JOIN tbl_prealable
 ON tbl_cours.no_cours = tbl_prealable.no_coursBase
+GO
 
 /*
 3- En utilisant a) une table dérivée et b) With (CTE), c) des alias, affichez tous les cours avec ou sans préalable 
 	et pour leur préalable, affichez le nom de cours de celui-ci (3 lignes)
 */
 /* a) une table dérivée */
-SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nom AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', tableTemporaireCours.nom AS 'Nom du cours préalable'
+SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nomCours AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', tableTemporaireCours.nomCours AS 'Nom du cours préalable'
 FROM tbl_cours LEFT OUTER JOIN tbl_prealable
 ON tbl_cours.no_cours = tbl_prealable.no_coursBase
-LEFT OUTER JOIN (SELECT no_cours, nom FROM tbl_cours) tableTemporaireCours
+LEFT OUTER JOIN (SELECT no_cours, nomCours FROM tbl_cours) tableTemporaireCours
 ON tableTemporaireCours.no_cours = tbl_prealable.no_coursPrealable
+GO
 
 /* b) With (DTE)*/
 WITH tabletemporaireCours (no_cours, nom_cours)
-AS (SELECT no_cours, nom FROM tbl_cours)
+AS (SELECT no_cours, nomCours FROM tbl_cours)
 
-SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nom AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', tableTemporaireCours.nom_cours AS 'Nom du cours préalable'
+SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nomCours AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', tableTemporaireCours.nom_cours AS 'Nom du cours préalable'
 FROM tbl_cours LEFT OUTER JOIN tbl_prealable
 ON tbl_cours.no_cours = tbl_prealable.no_coursBase
 LEFT OUTER JOIN tabletemporaireCours
 ON tableTemporaireCours.no_cours = tbl_prealable.no_coursPrealable
+GO
 
 /* c) alias*/
-SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nom AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', coursDeuxièmeInstance.nom AS 'Nom du cours préalable'
+SELECT tbl_cours.no_cours 'Numéro de cours', tbl_cours.nomCours AS 'Cours qui ont un préalable', tbl_prealable.no_coursPrealable AS 'Numéro de cours du préalable', coursDeuxièmeInstance.nomCours AS 'Nom du cours préalable'
 FROM tbl_cours LEFT OUTER JOIN tbl_prealable
 ON tbl_cours.no_cours = tbl_prealable.no_coursBase
 LEFT OUTER JOIN tbl_cours AS coursDeuxièmeInstance
 ON coursDeuxièmeInstance.no_cours = tbl_prealable.no_coursPrealable
+GO
 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
@@ -535,7 +540,7 @@ use Glg_bd /* mettre ta BD*/
 /* données une année avant 2025 */
 insert into tbl_etudiant (no_da,prenom,nom,email)
 select '24000' + str(businessEntityID,2) as Contact_ID,FirstName,LastName, FirstName + LastName + '@'+'gmail.com'
-from AdventureWorks2022.Person.person
+from BD_AdventureWorks.Person.person
 where businessEntityID >30 and businessEntityID< 40
 go
 /*select * from tbl_etudiant
@@ -575,7 +580,7 @@ where no_da = 2400033 and no_offreCours = (select no_offreCours
 											where no_cours = '4204A2BA' and no_session ='H2024')
 go
 
-use AdventureWorks2022
+use BD_AdventureWorks
 go
 /********************************************ROW_NUMBER********************************************/
 /*	ROW_NUMBER :	permet d'assigner un entier séquentiel à chaque ligne d'une requête 
@@ -592,11 +597,13 @@ go
 /*	exemple sans partition */
 SELECT BusinessEntityID, LastName, FirstName, Title, ROW_NUMBER() OVER (ORDER BY LastName, FirstName) Ordre
 FROM     Person.Person
+GO
 
 /*	exemple avec partition, créant des sous groupes, remarquer que l'ordre recommence à 0 sur changement de valeur du regroupement */
 SELECT BusinessEntityID, LastName, FirstName, Title, ROW_NUMBER() OVER (PARTITION BY title ORDER BY LastName, FirstName) Ordre
 FROM     Person.Person
 where title is not null
+GO
 
 /*	ROW_NUMBER est intéressant pour la pagination (pensons dans une page Web où l'on veut afficher page par page pour accélérer l'affichage )
 	exemple affichant les clients de la page 2, une page ayant 10 clients
@@ -606,7 +613,7 @@ from (
 		SELECT BusinessEntityID, LastName, FirstName, Title, ROW_NUMBER() OVER (ORDER BY LastName, FirstName) Ordre
 		FROM     Person.Person ) tableTemporaireClient
 where ordre > 20 and ordre <= 30 /* la table temporaire permet d'utiliser ordre dans le where */
-
+GO
 
 /********************************************RANK********************************************/
 /*	
@@ -628,6 +635,7 @@ order by :		obligatoire car les nombres sont assignés selon le tri choisi.
 SELECT ProductID, Name, ListPrice, 
 	RANK () OVER ( ORDER BY ListPrice DESC) 'rang des prix '
 FROM     Production.Product
+GO
 /* Si on voudrais avoir les top 2 des produits les plus cher, les neuf premiers produits s'afficherais puisque les */
 /*			5 premiers ont le même prix (prix plus cher) et les 4 suivant on le même prix (deuxième prix plus cher) */ 
 
@@ -638,6 +646,7 @@ SELECT	ProductID, Name, ListPrice, ProductSubcategoryID,
 		RANK () OVER ( PARTITION BY ProductSubcategoryID ORDER BY ListPrice DESC) 'rang des prix '
 FROM     Production.Product
 where ProductSubcategoryID is not null
+GO
 
 /* donne le rang des prix par sous catégorie mais seulement les rangs de prix <= 3, s'il y a  lieu : utilisation de table dérivée */
 select * 
@@ -647,7 +656,7 @@ from (
 		FROM     Production.Product
 		where ProductSubcategoryID is not null) tableTemporairePrixProduit
 where [rang des prix] <= 3
-
+GO
 
 /********************************************NEWID********************************************/
 
@@ -657,7 +666,7 @@ where [rang des prix] <= 3
 SELECT top 5 BusinessEntityID, LastName, FirstName, Title ,NEWID()
 FROM     Person.Person
 order by newid()
-
+GO
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
@@ -668,8 +677,8 @@ order by newid()
 	use Glg_bd
 	go
 
-	use LT_biblio /* Pour les mêmess résultats que les exercices */ 
-	GO
+	--use LT_biblio /* Pour les mêmess résultats que les exercices */ 
+	--GO
 
 /*  1-	affichez la liste de classe (no_da, nom, prenom ) en ordre alphabétique de nom et prénom pour un cours 
 	donnée et une session donnée, avec le rang avant les noms. pour 4204A2BA, H2025
@@ -682,7 +691,8 @@ FROM tbl_etudiant
 	INNER JOIN tbl_offreCours
 	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
 WHERE tbl_offreCours.no_cours = '4204A2BA' AND tbl_offreCours.no_session = 'H2025' 
-		
+GO
+
 /*	2- affichez la liste des étudiants (no_da, nom, prenom , no_cours, session et note) 
 	en ordre de note (desc) selon le no_cours, session 
 	et indiquer le rang selon la note. 
@@ -697,6 +707,8 @@ FROM tbl_etudiant
 	INNER JOIN tbl_offreCours
 	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
 WHERE tbl_inscription.note IS NOT NULL
+GO
+
 /*	Remarquez qui a le même rang. (Cracium et Thibaudeau, Laszlo et Dudenhoefer) */
 
 /* 3- Pour une bourse, affichez seulement les étudiants au 1e ou 2e rang de note et ce par cours/ session 
@@ -714,6 +726,7 @@ FROM tbl_etudiant
 	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
 WHERE tbl_inscription.note IS NOT NULL) tabletemporaireBourseEtudiant
 WHERE [Rang] <= 2
+GO
 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
@@ -970,8 +983,8 @@ ALTER TABLE [dbo].[LIVRES_AUTEURS] CHECK CONSTRAINT [FK_LIVRES_AUTEURS_LIVRES]
 GO
 USE [master]
 GO
-ALTER DATABASE [LT_biblio] SET  READ_WRITE 
-GO
+--ALTER DATABASE [LT_biblio] SET  READ_WRITE 
+--GO
 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
@@ -1039,6 +1052,7 @@ AS
       RETURN 
   END
  GO
+
  /* N.B. @employees est une variable table , c'est une type special pour une variable locale, elle est temporaire. 
 	elle est enregistrée dans tempDb
 	sa durée de vie se termine à la fin de la batch 
@@ -1046,21 +1060,26 @@ AS
 
  /* appel de la function */
 	SELECT * FROM GetEmployesParDepartement(1)
-  
+	GO
+
  /* On peut spécifier certaines colonnes de la fonction*/
 	SELECT nom,prenom FROM GetEmployesParDepartement(1)
+	GO
 
  /*ou on peut ajouter un order by par exemple */
 	SELECT * FROM GetEmployesParDepartement(1) ORDER BY prenom
+	GO
 
 /* Nous allons utiliser cette fonction pour nous donner pour chaque département, les employés de celui-ci */
 
 /* cross apply prend chaque ligne du select et le join à la fonction en passant en paramètre le no_departement  */ 
 	SELECT * FROM tbl_departement d CROSS APPLY GetEmployesParDepartement(d.no_departement)
+	GO
 
  /* si on veut qu'il retourne TOUS les départements, et pour chacun nous retourne les employés qu'ils y en ait ou pas
 	on utilisera outer apply --> Même principe que OUTER JOIN */ 
-	 SELECT * FROM tbl_departement d OUTER APPLY GetEmployesParDepartement(d.no_departement) 
+	SELECT * FROM tbl_departement d OUTER APPLY GetEmployesParDepartement(d.no_departement) 
+	GO
 
 /* autre façon de faire la function, sans table temporaire */ 
 CREATE FUNCTION GetEmployesParDepartement2 (@no_departement int) 
@@ -1075,24 +1094,25 @@ GO
 
 /* retourne pour chaque département,  les employés */ 
  SELECT * FROM tbl_departement d CROSS APPLY GetEmployesParDepartement2(d.no_departement)
-
+ GO
  /* Exemple, sans utiliser de function mais plutôt une table dérivée
  */
  SELECT * FROM tbl_departement d CROSS APPLY (	
 	SELECT *
 	FROM   tbl_employe 
 	WHERE  tbl_employe.no_departement = d.no_departement) e
-
+	 GO
 /*	Mais attention au piège, si on utilise pas de fonction, et qu'on peut le faire avec un inner join, 
 	c'est mieux avec un inner join, le cross apply est pas nécessaire ...
 */
 	SELECT * 
 	FROM tbl_departement INNER JOIN  tbl_employe
 	ON  tbl_employe.no_departement = tbl_departement.no_departement 
-
+	 GO
 /*	Voici un exemple classique d'utilisation intéressante avec un cross apply */
 /*	function qui me retourne les 2 livres les moins chers d'un auteur 
 	(donc l'utilisation d'un top qui servira pour toutes les lignes d'une requête )*/
+
 use Glg_bd
 GO
 ALTER FUNCTION SommePrixLivreParAuteur(@id_auteur int)
@@ -1116,6 +1136,7 @@ GO
 SELECT * 
 FROM auteurs A CROSS APPLY SommePrixLivreParAuteur(A.id_auteur)
 ORDER BY nom,prenom
+GO
 
 /* on aurait aussi pu le faire avec une table dérivée au lieu d'une function */
 SELECT * 
@@ -1127,7 +1148,7 @@ FROM auteurs A CROSS APPLY (
 							ORDER BY prix 
 							) L
 ORDER BY nom,prenom
-
+GO
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
@@ -1147,7 +1168,7 @@ CREATE FUNCTION GetStudentsByBestNote (@nomCours nvarchar, @no_session nvarchar)
 RETURNS TABLE 
 AS
 RETURN (
-	SELECT TOP 2 tbl_cours.nom, no_session, tbl_etudiant.nom, tbl_etudiant.prenom, note,
+	SELECT TOP 2 tbl_cours.nomCours, no_session, tbl_etudiant.nom, tbl_etudiant.prenom, note,
 	RANK () OVER (ORDER BY note DESC) 'Meilleur Note'
 	FROM tbl_etudiant 
 	INNER JOIN tbl_inscription 
@@ -1156,7 +1177,7 @@ RETURN (
 	ON tbl_offreCours.no_offreCours = tbl_inscription.no_offreCours
 	INNER JOIN tbl_cours
 	ON tbl_cours.no_cours = tbl_offreCours.no_cours
-	WHERE tbl_cours.nom = @nomCours AND no_session = @no_session )
+	WHERE tbl_cours.nomCours = @nomCours AND no_session = @no_session )
 GO
 	
 
@@ -1173,14 +1194,14 @@ CREATE OR ALTER PROCEDURE ListerResultatEtudiant
     @no_da nchar(7)
 AS
 BEGIN
-select tbl_etudiant.no_da, tbl_etudiant.nom, tbl_etudiant.prenom, tbl_inscription.note, tbl_cours.nom, tbl_offreCours.no_session
+select tbl_etudiant.no_da, tbl_etudiant.nom, tbl_etudiant.prenom, tbl_inscription.note, tbl_cours.nomCours, tbl_offreCours.no_session
 
 FROM    tbl_inscription INNER JOIN
         tbl_etudiant ON tbl_inscription.no_da = tbl_etudiant.no_da INNER JOIN
         tbl_offreCours ON tbl_inscription.no_offreCours = tbl_offreCours.no_offreCours INNER JOIN
         tbl_cours ON tbl_offreCours.no_cours = tbl_cours.no_cours
 where tbl_etudiant.no_da = @no_da
-order by no_session, tbl_cours.nom
+order by no_session, tbl_cours.nomCours
 
 END
 GO
@@ -1227,7 +1248,7 @@ GO
 
 insert into tbl_etudiant (no_da,prenom,nom,email)
 select '23000' + str(businessEntityID,2) as Contact_ID,FirstName,LastName, FirstName + LastName + '@'+'gmail.com'
-from AdventureWorks2022.Person.person
+from BD_AdventureWorks.Person.person
 where businessEntityID >30 and businessEntityID< 40
 go
 
@@ -1314,12 +1335,13 @@ go
 
 /*************************************************/
 /* Étape #2 - Creation d'une procedure stockée sans transaction avec une erreur */
-create proc detruireEtudiantEtInscription
+CREATE OR ALTER PROCEDURE detruireEtudiantEtInscription
 @no_etudiant nchar(7)
 as
 delete from tbl_inscription where no_da = @no_etudiant
+
 /* erreur provoquée : contrainte de reference :no_offreCours inexistant*/
-insert into tbl_inscription (no_da,no_offreCours) values ('2300060',100)
+--insert into tbl_inscription (no_da,no_offreCours) values ('2300060',100)
 delete from tbl_etudiant where no_da = @no_etudiant
 go
 
@@ -1328,6 +1350,7 @@ go
 exec detruireEtudiantEtInscription '2300060'
 select * from tbl_etudiant where no_da = '2300060'
 select * from tbl_inscription where no_da = '2300060'
+GO
 
 /*************************************************/
 /* Étape #4 - Ajout de transactions dans notre procedure */
@@ -1361,13 +1384,13 @@ values ((select no_offreCours  from tbl_offreCours where no_cours = '4203B2BA' a
 insert into tbl_inscription(no_offreCours,no_da)  
 values ((select no_offreCours  from tbl_offreCours where no_cours = '4203B2BA' and no_session = 'A2023'),
 		'2300060')
-
+GO
 /************/
 /* Étape #6 - Essaie de la procedure  avec l'erreur (rien n'est détruit), puis essayer sans l'erreur, tout est détruit */
 exec detruireEtudiantEtInscription '2300060'
 select * from tbl_etudiant where no_da = '2300060'
 select * from tbl_inscription where no_da = '2300060'
-
+GO
 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
