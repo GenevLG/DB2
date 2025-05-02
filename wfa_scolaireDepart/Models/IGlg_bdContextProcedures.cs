@@ -15,6 +15,7 @@ namespace wfa_scolaireDepart.Models
     {
         Task<List<GetTotalCoursesResult>> GetTotalCoursesAsync(string session, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> GetTotalCoursesWithOutputAsync(string session, OutputParameter<int?> nombreDeCours, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<ListerResultatEtudiantResult>> ListerResultatEtudiantAsync(string no_da, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> ModifierNoteEtudiantAsync(string no_da, int? no_offreCours, decimal? note, string nom, string prenom, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }

@@ -44,7 +44,7 @@ namespace wfa_scolaireDepart
         {
             TblCour cours = new TblCour();
             cours.NoCours = noCoursTextBox.Text;
-            cours.Nom = nomCoursTextBox.Text;
+            cours.NomCours = nomCoursTextBox.Text;
             cours.Pond = ponderationTextBox.Text;
             return cours;
         }
@@ -67,7 +67,7 @@ namespace wfa_scolaireDepart
 
             if (cours != null)
             {
-                nomCoursTextBox.Text = cours.Nom;
+                nomCoursTextBox.Text = cours.NomCours;
                 noCoursTextBox.Text = cours.NoCours;
                 ponderationTextBox.Text = cours.Pond;
             }
@@ -94,7 +94,7 @@ namespace wfa_scolaireDepart
                     if (nombreDeLigneAffectee > 0)
                     {
                         ViderTxtBox();
-                        MessageBox.Show(cours.Nom + " à été modifié avec succès!");
+                        MessageBox.Show(cours.NomCours + " à été modifié avec succès!");
                         RemplirComboBox();
                     }
                     else
@@ -126,7 +126,7 @@ namespace wfa_scolaireDepart
                     if (nombreDeLigneAffectee > 0)
                     {
                         ViderTxtBox();
-                        MessageBox.Show(cours.Nom+ " à été détruit avec succès!");
+                        MessageBox.Show(cours.NomCours + " à été détruit avec succès!");
                         RemplirComboBox();
                     }
                     else
@@ -163,7 +163,7 @@ namespace wfa_scolaireDepart
                     if (nombreDeLigneAffectee > 0)
                     {
                         ViderTxtBox();
-                        MessageBox.Show(coursModifier.Nom + " à été modifié avec succès!");
+                        MessageBox.Show(coursModifier.NomCours + " à été modifié avec succès!");
                         RemplirComboBox();
                     }
                     else
@@ -196,7 +196,7 @@ namespace wfa_scolaireDepart
                     if (nombreDeLigneAffectee > 0)
                     {
                         ViderTxtBox();
-                        MessageBox.Show(coursDetruit.Nom + " à été détruit avec succès!");
+                        MessageBox.Show(coursDetruit.NomCours + " à été détruit avec succès!");
                         RemplirComboBox();
                     }
                     else

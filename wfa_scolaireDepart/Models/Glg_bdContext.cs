@@ -17,17 +17,7 @@ public partial class Glg_bdContext : DbContext
     {
     }
 
-    public virtual DbSet<Auteur> Auteurs { get; set; }
-
-    public virtual DbSet<Category> Categories { get; set; }
-
-    public virtual DbSet<Livre> Livres { get; set; }
-
     public virtual DbSet<TblCour> TblCours { get; set; }
-
-    public virtual DbSet<TblDepartement> TblDepartements { get; set; }
-
-    public virtual DbSet<TblEmploye> TblEmployes { get; set; }
 
     public virtual DbSet<TblEtudiant> TblEtudiants { get; set; }
 
@@ -41,49 +31,13 @@ public partial class Glg_bdContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=PeachNextGeN;Initial Catalog=Glg_bd;Integrated Security=True;Encrypt=False");
+        => optionsBuilder.UseSqlServer("Data Source=PEACHNEXTGEN;Initial Catalog=Glg_bd;Integrated Security=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Auteur>(entity =>
-        {
-            entity.Property(e => e.IdAuteur).ValueGeneratedNever();
-        });
-
-        modelBuilder.Entity<Category>(entity =>
-        {
-            entity.Property(e => e.IdCategorie).ValueGeneratedNever();
-        });
-
-        modelBuilder.Entity<Livre>(entity =>
-        {
-            entity.Property(e => e.IdLivre).ValueGeneratedNever();
-
-            entity.HasOne(d => d.IdCategorieNavigation).WithMany(p => p.Livres).HasConstraintName("FK_LIVRES_CATEGORIES");
-
-            entity.HasMany(d => d.IdAuteurs).WithMany(p => p.IdLivres)
-                .UsingEntity<Dictionary<string, object>>(
-                    "LivresAuteur",
-                    r => r.HasOne<Auteur>().WithMany()
-                        .HasForeignKey("IdAuteur")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_LIVRES_AUTEURS_AUTEURS"),
-                    l => l.HasOne<Livre>().WithMany()
-                        .HasForeignKey("IdLivre")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_LIVRES_AUTEURS_LIVRES"),
-                    j =>
-                    {
-                        j.HasKey("IdLivre", "IdAuteur");
-                        j.ToTable("LIVRES_AUTEURS");
-                        j.IndexerProperty<int>("IdLivre").HasColumnName("ID_LIVRE");
-                        j.IndexerProperty<int>("IdAuteur").HasColumnName("ID_AUTEUR");
-                    });
-        });
-
         modelBuilder.Entity<TblCour>(entity =>
         {
-            entity.HasKey(e => e.NoCours).HasName("PK__tbl_cour__1297542FC7C29B89");
+            entity.HasKey(e => e.NoCours).HasName("PK__tbl_cour__1297542FC61CA6EC");
 
             entity.Property(e => e.NoCours).IsFixedLength();
             entity.Property(e => e.Pond)
@@ -141,29 +95,9 @@ public partial class Glg_bdContext : DbContext
                     });
         });
 
-        modelBuilder.Entity<TblDepartement>(entity =>
-        {
-            entity.HasKey(e => e.NoDepartement).HasName("PK_departement");
-
-            entity.Property(e => e.NoEmployeResp).IsFixedLength();
-
-            entity.HasOne(d => d.NoEmployeRespNavigation).WithMany(p => p.TblDepartements).HasConstraintName("FK__tbl_depar__no_em__52593CB8");
-        });
-
-        modelBuilder.Entity<TblEmploye>(entity =>
-        {
-            entity.HasKey(e => e.NoEmploye).HasName("PK__tbl_empl__00FC3D60DBCE56E3");
-
-            entity.Property(e => e.NoEmploye).IsFixedLength();
-
-            entity.HasOne(d => d.NoDepartementNavigation).WithMany(p => p.TblEmployes)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__tbl_emplo__no_de__5165187F");
-        });
-
         modelBuilder.Entity<TblEtudiant>(entity =>
         {
-            entity.HasKey(e => e.NoDa).HasName("PK__tbl_etud__E2D4DBFA7D222F81");
+            entity.HasKey(e => e.NoDa).HasName("PK__tbl_etud__E2D4DBFA77BE5D77");
 
             entity.Property(e => e.NoDa).IsFixedLength();
         });
@@ -201,7 +135,7 @@ public partial class Glg_bdContext : DbContext
 
         modelBuilder.Entity<TblSession>(entity =>
         {
-            entity.HasKey(e => e.NoSession).HasName("PK__tbl_sess__6DBB4FB971312F2F");
+            entity.HasKey(e => e.NoSession).HasName("PK__tbl_sess__6DBB4FB997FE4F70");
 
             entity.Property(e => e.NoSession).IsFixedLength();
         });

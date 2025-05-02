@@ -15,31 +15,7 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[AUTEURS]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[CATEGORIES]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[LIVRES]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[LIVRES_AUTEURS]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[tbl_cours]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[tbl_departement]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[tbl_employe]",
          "ObjectType": 0
       },
       {

@@ -106,6 +106,33 @@ namespace wfa_scolaireDepart.Models
             return _;
         }
 
+        public virtual async Task<List<ListerResultatEtudiantResult>> ListerResultatEtudiantAsync(string no_da, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "no_da",
+                    Size = 14,
+                    Value = no_da ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.NChar,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<ListerResultatEtudiantResult>("EXEC @returnValue = [dbo].[ListerResultatEtudiant] @no_da = @no_da", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> ModifierNoteEtudiantAsync(string no_da, int? no_offreCours, decimal? note, string nom, string prenom, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
