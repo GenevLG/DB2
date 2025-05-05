@@ -34,7 +34,7 @@ namespace wfa_scolaireDepart
             listCoursEager = managerCours.ListerCoursEager();
             nomCoursComboBox.DataSource = listCoursEager;
             nomCoursComboBox.ValueMember = "NoCours";
-            nomCoursComboBox.DisplayMember = "nom";
+            nomCoursComboBox.DisplayMember = "nomCours";
         }
 
         private void nomCoursComboBox_SelectionChangeCommitted(object sender, EventArgs e)
