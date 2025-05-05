@@ -988,10 +988,8 @@ GO
 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
+/* *************** CROSS APPLY ********************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
-
-/******************************************** CROSS APPLY ********************************************/
 /* 
 cross apply et outer apply 
 */
@@ -1151,8 +1149,6 @@ ORDER BY nom,prenom
 GO
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
 
 /*Exercice #4 */
 
@@ -1236,12 +1232,11 @@ GO
 	https://towardsdatascience.com/probably-the-best-introduction-about-join-cross-apply-union-cross-joins-and-more-in-sql-server-f2ee8f8af957
  */
 
-/* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
 
-/* ******************************************* VIEW ******************************************* */
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************** VIEW ***************************************************************************************************** */ 
+/* ************************************************************************************************************************* */ 
 
 /* les vues */
 /* ajout de valeur pour l'exercice des vues */
@@ -1272,8 +1267,6 @@ select no_da,(select no_offreCours from tbl_offreCours where no_cours = '4204A2B
 go
 
 
-/* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
 
@@ -1394,8 +1387,6 @@ GO
 
 /* ************************************************************************************************************************* */ 
 /* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
-/* ************************************************************************************************************************* */ 
 
 /*Exercice #6 */
 
@@ -1456,6 +1447,442 @@ EXEC AddDepartAndEmployeInIt'Ressources Humaines','Bloom','Chelsey'
 
 select * from tbl_departement_Exercice6
 select * from tbl_employe_Exercice6
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************** TRRIGGERS ********************************************************************************************** */ 
+/* ************************************************************************************************************************* */ 
+
+/* démonstration des triggers */
+/* Ajoutez ces 2 tables dans une de vos BD pour faire l'exercice suivant ou dans une nouvelle BD  */
+USE [master]
+GO
+DROP DATABASE IF EXISTS lt_cie2
+go
+CREATE DATABASE lt_cie2
+GO
+
+USE Glg_bd
+GO
+
+CREATE TABLE tbl_departement (
+    no_departement int identity NOT NULL primary key,
+	nom_departement nvarchar (30) NOT NULL
+	
+) 
+GO
+
+CREATE TABLE tbl_employe (
+	no_employe int identity NOT NULL primary key,
+	nom nvarchar (30)  NOT NULL ,
+	prenom nvarchar (30)   NULL ,
+	no_departement int not NULL references tbl_departement(no_departement) 
+) ON [PRIMARY]
+GO
+
+alter table tbl_departement
+add no_employe_responsable int references tbl_employe(no_employe)
+go
+
+
+/* Ajout de quelques données */
+insert into tbl_departement (nom_departement)
+values('Technique informatique')
+insert into tbl_departement (nom_departement)
+values('Technique administrative')
+insert into tbl_departement (nom_departement)
+values('Technique infirmière')
+insert into tbl_employe
+values ('Roy','Louis',1)
+insert into tbl_employe
+values ('Veilleux','Louison',1)
+insert into tbl_employe
+values ('Côté','Marc',3)
+go
+update tbl_departement
+set no_employe_responsable = '2'
+where no_departement = '1'
+go
+
+/* verification : pour voir le contenu des tables */
+select * from tbl_employe
+select * from tbl_departement
+
+
+/*
+Restriction : Le responsable d'un département doit absolument faire partie de ce département
+
+Pour s'en assurer, nous ferons un trigger en ajout, modification.
+
+*/
+/* test pour voir et comprendre le contenu des tables inserted et deleted */
+create trigger trigger_verifierResponsableDepartementDansLeDepartement
+on tbl_departement
+for insert,update
+AS
+select * from inserted
+select * from deleted
+go
+
+
+/* test pour essayer ce trigger */
+insert into tbl_departement (nom_departement)
+values('Technique industriel')
+go
+/* enlever notre ajout */
+delete from tbl_departement where no_departement = '4'
+go
+/* test pour comprendre que le trigger s'effectue après l'ajout soit en POST exécution */
+
+alter trigger trigger_verifierResponsableDepartementDansLeDepartement
+on tbl_departement
+for insert,update
+AS
+select * from inserted
+select * from deleted
+select * from tbl_departement
+go
+
+/*test pour essayer ce trigger */
+ 
+insert into tbl_departement (nom_departement)
+values('Technique industriel')
+go
+/* Nous remarquons qu'il l'ajoute dans la table avant de faire le trigger.
+   Nous ne pouvons réagir qu'après...en effet le trigger est en post ajout */
+
+/* enlever notre ajout erroné */
+delete from tbl_departement where no_departement = '4'
+go
+
+alter trigger trigger_verifierResponsableDepartementDansLeDepartement
+on tbl_departement
+for insert,update
+AS
+select * from tbl_employe
+select * from tbl_departement
+select *
+from inserted inner join tbl_employe
+on tbl_employe.no_employe = inserted.no_employe_responsable
+
+if exists (	select no_employe_responsable
+				from inserted inner join tbl_employe
+				on tbl_employe.no_employe = inserted.no_employe_responsable
+				where tbl_employe.no_departement <> inserted.no_departement) /* on vérifie le cas ou il n'y a pas de lien entre mon ajout et la table employe */
+   begin
+   THROW 51000, 'Le responsable donné ne fait pas partie du département', 16;
+   rollback
+   end
+go
+
+/* verification : pour voir le contenu des tables */
+select * from tbl_employe
+select * from tbl_departement
+/* Ajout de mauvaises données : doit être interceptées par le trigger => ok */
+insert into tbl_departement (nom_departement,no_employe_responsable)
+values ( 'usinage',1)
+go
+/* idem mais en modification => est intercepté*/
+update tbl_departement
+set no_employe_responsable = 3
+where no_departement = 1
+go
+/* Ajout de bonnes données, seront ajoutées*/
+update tbl_departement
+set no_employe_responsable = 2
+where no_departement = 1
+go
+
+		
+/* version finale */
+alter trigger trigger_verifierResponsableDepartementDansLeDepartement
+on tbl_departement
+for insert,update
+AS
+set nocount on
+if update(no_employe_responsable) /* pour éviter de faire le trigger si pas nécessaire*/
+begin
+	if exists (select inserted.no_employe_responsable
+			from inserted inner join tbl_employe
+			on tbl_employe.no_employe = inserted.no_employe_responsable
+			where tbl_employe.no_departement <> inserted.no_departement )
+	begin
+		rollback; 
+		THROW 51000, 'Le responsable donné ne fait pas partie du département', 16;
+	end
+end
+set nocount off
+go
+
+
+/* verification en batch, plusieurs modifications à la fois */
+update tbl_departement
+set no_employe_responsable = 1
+
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/*Exercice #7 */
+
+
+/*
+A faire : 
+   Les épreuves sont pour un certain groupe d'âge.
+   nous connaissons la dateNaissance de chaque compétiteur.
+   Assurez-vous par un trigger que chaque ajout d'une inscription respecte le groupe d'âge du compétiteur.
+  
+*/
+
+/*	pour trouver l'age juste https://blog.developpez.com/sqlpro/p12468/langage-sql-norme/calculs-sql-avec-des-dates-age-exact-revolu-et-anniversaires
+*/
+
+/*	Je vous donne cette fonction afin de faciliter le calcul de l'âge à partir de'une date de naissance.
+	Faite-là executer.
+*/
+
+USE Glg_bd
+GO
+
+CREATE FUNCTION donnerAge (@date_naissance datetime)
+RETURNS int
+AS
+BEGIN
+   return (YEAR(GETDATE( )) - YEAR( @date_naissance) - 
+			CASE WHEN MONTH(GETDATE( )) < MONTH( @date_naissance) OR (MONTH(GETDATE( )) = MONTH( @date_naissance) 
+			AND DAY(GETDATE( )) < DAY( @date_naissance)) THEN 1 ELSE 0 END)
+END;
+GO
+/* voici comment l'appeler, il suffit de la mettre dans un select :  
+
+	SELECT dbo.donnerAge(date_naissance) AS 'age'
+	from tbl_competiteur
+
+*/
+
+
+/* trigger fonctionnelle en batch et unitaire */
+
+
+
+
+/* tests unitaires */
+		/* select utile pour tests unitaires */
+				select *,dbo.donnerAge(date_naissance) AS 'age'
+				from tbl_competiteur
+
+				select * from tbl_epreuve inner join tbl_categorie on tbl_categorie.no_categorie = tbl_epreuve.no_categorie
+
+				select * from tbl_inscription
+
+		/* Test non FONCTIONNEL :ajout d'un competiteur dans un mauvais groupe, utiliser le compétiteur 2, ajuster le commentaire */
+		insert into tbl_inscription(no_epreuve,no_competiteur)
+		values (x,2) /* groupe d'age  : x-x  pour competiteur de : x ans => ajoutera PAS*/
+
+		delete from tbl_inscription where no_epreuve =x and no_competiteur = 2
+
+		/* Test FONCTIONNEL : ajout d'un competiteur dans un bon groupe, utiliser le compétiteur 2, ajuster le commentaire */
+		insert into tbl_inscription(no_epreuve,no_competiteur)
+		values (x,2) /* groupe d'age  : x-x pour competiteur de x ans => ok ajoutera */
+
+		delete from tbl_inscription where no_epreuve =x and no_competiteur = 2
+
+
+
+/* test en batch */
+		/* doit refuser l'ajout en batch, indiquer pour chaque ajout s'il sera accepté ou refusé, au moins 3 ajouts */
+		insert into tbl_inscription(no_epreuve,no_competiteur)
+		values	() /* groupe d'age  : x-x  pour competiteur de : x ans =>	ajoutera PAS*/
+				,() /* groupe d'age  : x-x   pour competiteur de x ans =>	ok ajoutera */
+				,() /* groupe d'age  : x-x   pour competiteur de : x ans =>	ok ajoutera */
+		go
+		delete from tbl_inscription where no_epreuve =x and no_competiteur = x
+
+		/* doit accepter l'ajout en batch, indiquer pour chaque ajout s'il sera accepté ou refusé, au moins 3 ajouts */ 
+		insert into tbl_inscription(no_epreuve,no_competiteur)
+		values	() /* groupe d'age  : x-x  pour competiteur de : x ans =>	ok ajoutera*/
+				,() /* groupe d'age  : x-x  pour competiteur de x ans =>	ok ajoutera */
+				,() /* groupe d'age  : x-x  pour competiteur de : x ans =>	ok ajoutera */
+		go
+		
+		delete from tbl_inscription where no_epreuve =x and no_competiteur = x
+
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+/* ************** SQL DYNAMIQUE ********************************************************************************************** */ 
+/* ************************************************************************************************************************* */ 
+
+
+/************************* SQL DYNAMIQUE ****************************************/
+
+USE Glg_bd
+GO
+
+
+/* sql dynamique :	technique qui permet de construire l'instruction sql 
+					dynamiquement à l'exécution
+					
+					attention avec le sql dynamique on a pas de gain en 
+					performance de la procédure stockées car elle ne peut 
+					pas être en cache.
+					De plus elle doit être compilée à chaque utilisation 
+					(contrairement à l'avantage des procédures stockées) 
+*/
+
+/*
+exemple :	Nous pouvons utiliser la procedure stockee sp_executesql qui execute 
+			le texte passé en paramètre. 
+			Il nous faut mettre N devant le string pour convertir en texte unicode.
+			le type nvarchar doit être utilisée pour la requête
+			cette execution n'est pas très utile...mais démontre une instruction créer dynamiquement
+*/
+exec sp_executesql N'select * from tbl_employe';
+
+/* On désire se faire une procédure stockée pour afficher le contenu d'une table
+exemple non dynamique : ne compile pas 
+En effet des colonne, des nom de table ne peuvent pas être passé en paramètre */
+Create Procedure nonselect_table
+@nom_table VarChar(100)
+AS
+SELECT * FROM @nom_table
+GO
+ 
+/* solution en dynamique,
+	sp_executesql peut être omis, 
+	mais celui-ci utilise l'optimiser de requête lui donnant une meilleur performance.
+	sp_executesql retourne le plan d'execution contrairement à exec qui exécutera différents plans si on utilise plusieurs paramètres
+	supporte les paramètres output
+	nous protège contre les risques d'injection de code
+
+	QUOTENAME() permet d'empêcher l'injection de code en encapsulant avec des crochets
+	*/
+
+create or alter Procedure select_table
+@nom_table VarChar(100)
+AS
+Declare @SQL nvarChar(1000)
+/* confection de la requête */
+set @SQL = N'SELECT * FROM '  + QUOTENAME(@nom_table)
+Exec sp_executesql  @SQL
+GO
+
+
+/* utilisation */
+exec select_table 'tbl_departement'
+exec select_table 'tbl_employe'
+
+
+/* Permettre de choisir les colonnes de notre select pour faire une requête dynamique */
+create or alter procedure afficherColonnes
+@lesColonnes nvarchar(300)
+as
+Declare @SQL nvarChar(1000)
+set @SQL = N'SELECT ' +  @lesColonnes + ' FROM tbl_employe'  
+Exec sp_executesql  @SQL 
+go
+exec afficherColonnes 'nom,prenom'
+exec afficherColonnes 'no_employe,nom,prenom'
+
+
+
+/*	Exemple montrant l'avantage de sp_executesql => 
+		on peut passer des paramètres dans le sql (pas pour les colonnes, ni les tables, plutôt pour les where)
+		moins de risque d'injection et 
+		utilise l'optimiseur pour la requête
+	sp_executesql	1er paramètre : l'instruction sql a éxécuté
+					2e paramètre : liste des paramètres et leur type
+					3e paramètre : assignation des paramètres à leur valeur
+	*/
+create or alter procedure afficherColonnesEtEmploye
+@lesColonnes nvarchar(300),
+@no_employe int
+as
+Declare @SQL nvarChar(1000)
+set @SQL = N'SELECT  ' + @lesColonnes + '  FROM tbl_employe where no_employe = @no_employe'  
+Exec sp_executesql  @SQL ,N'@no_employe int',@no_employe = @no_employe
+go
+exec afficherColonnesEtEmploye 'no_employe,nom,prenom',1
+
+
+
+/* exemple avec un paramètre output :  
+	retourner le nombre d'employe ou retourner le nombre d'employe d'un département spécifique 
+	seul sp_executesql peut retourner un paramètre output */
+
+create or alter procedure donnerNombreEmployeSelonNoDepartement
+@no_departement int,
+@NombreEmployeOUT int output
+as
+Declare @SQL nvarChar(1000)
+set @SQL = N'SELECT  @NombreEmployeOUT= count(no_employe) FROM tbl_employe '
+if @no_departement is not null
+	set @sql = @sql + 'where no_departement = @no_departement group by no_departement'
+Exec sp_executesql  @SQL,N'@no_departement int,@NombreEmployeOUT int output',@no_departement = @no_departement, @NombreEmployeOUT = @NombreEmployeOUT output
+go
+ 
+/* appel avece no_departement null */
+DECLARE @NombreEmployeOUT nvarchar(50)
+exec donnernombreEmployeSelonNoDepartement null,@NombreEmployeOUT output
+select @NombreEmployeOUT as 'Nombre d''employés'
+
+ /* appel avec un no_departement */
+DECLARE @NombreEmployeOUT nvarchar(50)
+exec donnernombreEmployeSelonNoDepartement 1,@NombreEmployeOUT output
+select @NombreEmployeOUT as 'Nombre d''employés'
+
+
+/* ************************************************************************************************************************* */ 
+/* ************************************************************************************************************************* */ 
+
+/*Exercice #8 */
+
+/* exercice sur sql dynamique */
+/*  prendre une de vos bd pour pouvoir enregistrer une procedure stockée 
+	par contre vous utilisez le données de AdventureWorks2022 (donc dans le from mettre : FROM AdventureWorks2022.[Production].[Product]) */
+USE Glg_bd
+GO
+
+
+/* exercice  */
+/*
+Nous désirons obtenir la valeur minimum d'une colonne d'une table (fonction agrégation min ( ) ).
+Nous désirons passer le nom de la table et le nom de la colonne en paramètre (la colonne doit être numérique pour pouvoir faire un min )
+et recevoir le resultat dans un paramètre output
+Donc 3 paramètres :
+--> 'AdventureWorks2022
+--> valeurMinimumColonneDansTable
+--> valeurMinimum
+*/
+
+CREATE OR ALTER PROCEDURE valeurMinimumColonneDansTable
+@nomTable nvarchar(200),
+@nomColonne nvarchar(200),
+@valeurMinimumOUTPUT int output
+AS
+DECLARE @sql nvarchar(1000)
+SET @sql = N'SELECT @valeurMinimum = min('+ QUOTENAME(@nomColonne + ') 
+			FROM ' + @nomTable
+EXEC sp_executeSql @sql, 
+					N'@nomTable nvarchar(200),
+					  @nomColonne nvarchar(200),
+					  @valeurMinimumOUTPUT int output',
+					  @nomTable = @nomTable,
+					  @nomColonne = @nomColonne,
+					  @valeurMinimumOUTPUT = @valeurMinimumOUTPUT output
+GO
+
+
+ /* appel (donnera 4)*/
+DECLARE @valeurMinimumOUTPUT int
+exec valeurMinimumColonneDansTable 'AdventureWorks2022.[Production].[Product]','SafetyStockLevel',@valeurMinimumOUTPUT output
+select @valeurMinimumOUTPUT as 'valeur minimum'
+
+/* appel (donnera 3)*/
+DECLARE @valeurMinimumOUTPUT int
+exec valeurMinimumColonneDansTable 'AdventureWorks2022.[Production].[Product]','ReorderPoint',@valeurMinimumOUTPUT output
+select @vale
+
 
 
 
